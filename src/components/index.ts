@@ -1,0 +1,10 @@
+export { Navbar } from './Navbar';
+export { Hero } from './Hero';
+export { About } from './About';
+export { TechMarquee } from './TechMarquee';
+export { Projects } from './Projects';
+export { ProjectModal } from './ProjectModal';
+export { ExperienceSection } from './ExperienceSection';
+export { Contact } from './Contact';
+export { Footer } from './Footer';
+export { FloatingThemeSwitcher, THEMES } from './FloatingThemeSwitcher';
