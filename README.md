@@ -3,29 +3,6 @@
 A modern, high-performance personal portfolio web application built with **React 18 / React 19**, **TypeScript**, **Tailwind CSS**, and **Motion (Framer Motion)**. Designed with a sleek glassmorphism aesthetic, dynamic multi-theme switcher, fluid micro-interactions, responsive navigation, and project modal showcases.
 
 ---
-
-## ✨ Features
-
-- **Hero Section**: Dynamic typing animation with `typed.js`, ambient liquid glow backdrops, interactive status pill, and quick call-to-actions.
-- **About Me**: Bento grid highlights, location/origin badges, mission statement, and core engineering values.
-- **Projects Showcase & Modals**:
-  - **High School Management System** (Personal Project): Role-based multi-dashboard system for Varin High School with React 19, TypeScript, Tailwind CSS 4, React Router, Redux Toolkit, and MySQL.
-  - **Cakery Charm** (Personal Project): Neumorphic artisan bakery mobile app with Flutter, Dart, tactile elevations, combo carousels, and Phnom Penh delivery checkout.
-  - **Media Studio Pro** (Personal Project): 10-in-1 private media downloader & editor suite with React 18, Web Audio, HTML5 Canvas AI background removal, and Python Tkinter/yt-dlp desktop app with Khmer/English localization.
-  - **Farm Control Mobile App (VC2)** (School Project): Smart agriculture telemetry and hardware control mobile app with Expo Router, React Native, and React Native Elements.
-  - **Pos System**, **Inventory Management App**, **Video Download Tool**, **Bakery Shop Website**, and **Brochure Design**.
-  - Interactive category filtering (`All`, `Personal Project`, `Work Experience`, `School Project`) and responsive modal breakdowns (Role, The Problem, The Solution & Impact, Live Demo / Source links).
-- **Tech Marquee**: Infinite smooth dual-direction scrolling marquee showcasing languages, frontend/backend frameworks, and developer tools.
-- **Experience & Skills**:
-  - Detailed timeline of work experience, internships, and capstone projects.
-  - Updated **Technical Skills**: React / React 19, TypeScript, Flutter / Dart, React Native / Expo, Tailwind CSS, JavaScript (ES6+), HTML5 / CSS3 / SASS, Node.js / Express.js, PHP / Laravel, MySQL / MariaDB, Python / Tkinter, Web Audio & Canvas APIs.
-  - Updated **Tools & Platforms**: Figma (UI/UX), CapCut, AI & Generative Tools, Git / GitHub, Vite / Webpack, Postman, Linux (Ubuntu), Firebase, Jira / ClickUp, Power BI.
-  - Professional workshops and language proficiencies.
-- **Floating Theme Switcher**: 4 tailored color themes (`Dark`, `Light`, `Midnight`, `Nord`) with local storage persistence and smooth class transitions.
-- **Contact & Socials**: Interactive spring-animated social buttons (GitHub, LinkedIn, Facebook, Email) with floating tooltips.
-
----
-
 ## 🛠️ Tech Stack
 
 - **Core**: React 18+, TypeScript, Vite

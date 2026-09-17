@@ -28,7 +28,7 @@ export const PROJECTS_DATA: Project[] = [
       "Lucide React",
       "Fetch API",
       "Express.js",
-      "MySQL / MariaDB"
+      "MySQL"
     ],
     image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80",
     link: "https://github.com/Sreyneath-Rom/School-Management",
@@ -160,20 +160,7 @@ export const PROJECTS_DATA: Project[] = [
     link: "https://github.com/Sreyneath-Rom",
     github: "https://github.com/Sreyneath-Rom"
   },
-  {
-    id: 9,
-    title: "Brochure Design",
-    category: "School Project",
-    shortDescription: "Marketing brochures that communicate brand value clearly.",
-    description: "Created marketing brochures using Figma and applied branding guidelines to ensure consistent messaging.",
-    roleDescription: "Graphic/UI Designer. Translated complex service offerings into readable and attractive brochure layouts.",
-    problemSolved: "Need for high-quality marketing materials for service advertising.",
-    impact: "Produced versatile marketing assets used across multiple campaigns.",
-    tech: ["Figma", "Branding", "Layout Design", "Visual Arts"],
-    image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&q=80",
-    link: "https://github.com/Sreyneath-Rom",
-    github: "https://github.com/Sreyneath-Rom"
-  }
+
 ];
 
 export const EXPERIENCES_DATA: Experience[] = [
@@ -247,7 +234,7 @@ export const TECHNICAL_SKILLS = [
   'PHP / Laravel',
   'MySQL / MariaDB',
   'Python / Tkinter',
-  'Web Audio & Canvas API'
+
 ];
 
 export const TOOLS_AND_PLATFORMS = [
