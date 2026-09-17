@@ -3,16 +3,10 @@ import { motion } from 'motion/react';
 import { 
   Code2, 
   Palette, 
-  MapPin, 
-  GraduationCap, 
   Sparkles, 
-  ArrowUpRight, 
-  Compass, 
+  ArrowUpRight,  
   Check, 
-  Terminal,
-  Zap,
-  Eye,
-  Workflow
+
 } from 'lucide-react';
 
 export const About: React.FC = () => {
@@ -20,7 +14,7 @@ export const About: React.FC = () => {
     {
       icon: <Code2 size={24} className="text-brand-primary" />,
       tag: 'Development',
-      title: 'Frontend Engineering',
+      title: 'Frontend Developer',
       desc: 'Writing clean, scalable code with modern frameworks. Transforming static designs into fast, fluid, and responsive user interfaces with attention to state management and performance.',
       highlights: [
         'Component-driven architecture (React, Vite)',
@@ -32,7 +26,7 @@ export const About: React.FC = () => {
     {
       icon: <Palette size={24} className="text-brand-secondary" />,
       tag: 'Design',
-      title: 'UX / UI Design',
+      title: 'UX / UI Designer',
       desc: 'Crafting user-centric digital experiences from rough sketches to production-ready design systems. Focusing on intuitive information hierarchy, typography, and mathematical spacing.',
       highlights: [
         'Figma wireframing, high-fidelity mockups & prototypes',
@@ -40,47 +34,6 @@ export const About: React.FC = () => {
         'User flow mapping and friction reduction',
         'Accessible color contrast & WCAG AA standards'
       ]
-    }
-  ];
-
-  const quickStats = [
-    {
-      icon: <MapPin size={18} className="text-brand-primary" />,
-      label: 'Based in',
-      value: 'Phnom Penh, Cambodia'
-    },
-    {
-      icon: <GraduationCap size={18} className="text-brand-secondary" />,
-      label: 'Discipline',
-      value: 'IT & Digital Product Design'
-    },
-    {
-      icon: <Workflow size={18} className="text-emerald-400" />,
-      label: 'Workflow',
-      value: 'Figma → TypeScript → Production'
-    },
-    {
-      icon: <Zap size={18} className="text-amber-400" />,
-      label: 'Availability',
-      value: 'Open to Opportunities'
-    }
-  ];
-
-  const coreValues = [
-    {
-      icon: <Eye size={18} className="text-brand-primary" />,
-      title: 'Attention to Detail',
-      text: 'Every pixel, margin, and animation easing curve matters to the final feel.'
-    },
-    {
-      icon: <Terminal size={18} className="text-brand-secondary" />,
-      title: 'Clean Architecture',
-      text: 'Readable, maintainable codebases structured for longevity and seamless collaboration.'
-    },
-    {
-      icon: <Compass size={18} className="text-emerald-400" />,
-      title: 'Human-Centered',
-      text: 'Designing intuitive software that simplifies complex workflows instead of complicating them.'
     }
   ];
 
@@ -111,35 +64,6 @@ export const About: React.FC = () => {
             I am a Frontend Developer and UX/UI Designer dedicated to creating seamless, thoughtful, and high-performance digital products.
           </p>
         </motion.div>
-
-        {/* Quick Identity Grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-10"
-        >
-          {quickStats.map((item, index) => (
-            <div
-              key={index}
-              className="neu-card-sm p-4 sm:p-5 rounded-2xl flex items-center gap-3.5 group"
-            >
-              <div className="w-10 h-10 rounded-full neu-circle-btn flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                {item.icon}
-              </div>
-              <div className="min-w-0">
-                <div className="text-[11px] font-bold uppercase tracking-wider text-app-text/50">
-                  {item.label}
-                </div>
-                <div className="text-xs sm:text-sm font-semibold text-app-text truncate">
-                  {item.value}
-                </div>
-              </div>
-            </div>
-          ))}
-        </motion.div>
-
         {/* Two Core Pillars: Frontend Development & UI/UX Design */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           {pillars.map((pillar, index) => (
@@ -193,35 +117,6 @@ export const About: React.FC = () => {
             </motion.div>
           ))}
         </div>
-
-        {/* Core Values Strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-4"
-        >
-          {coreValues.map((value, idx) => (
-            <div
-              key={idx}
-              className="p-6 rounded-2xl neu-card-sm transition-all flex items-start gap-4"
-            >
-              <div className="w-10 h-10 rounded-full neu-circle-btn flex items-center justify-center shrink-0 mt-0.5">
-                {value.icon}
-              </div>
-              <div>
-                <h4 className="text-sm font-display font-bold text-app-text mb-1">
-                  {value.title}
-                </h4>
-                <p className="text-xs text-app-text/70 leading-relaxed font-normal">
-                  {value.text}
-                </p>
-              </div>
-            </div>
-          ))}
-        </motion.div>
-
       </div>
     </section>
   );

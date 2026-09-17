@@ -394,7 +394,7 @@ export const ExperienceSection: React.FC = () => {
                 <div>
                   <h3 className="text-lg md:text-xl font-display font-bold text-app-text flex items-center gap-2.5 mb-1">
                     <GraduationCap size={20} className="text-brand-primary" />
-                    Specialized Workshops & Certifications
+                    Specialized Workshops 
                   </h3>
                   <p className="text-xs md:text-sm text-app-text/60">
                     Continued professional development in leadership, product design, and analytics.

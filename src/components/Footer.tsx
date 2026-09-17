@@ -174,12 +174,6 @@ export const Footer: React.FC = () => {
             <span>&copy; {new Date().getFullYear()} Rom Sreyneath.</span>
             <span>All rights reserved.</span>
           </div>
-
-          <div className="flex items-center gap-2">
-            <span>Engineered with</span>
-            <Heart size={12} className="text-rose-500 fill-rose-500 animate-pulse" />
-            <span>in Phnom Penh, Cambodia</span>
-          </div>
         </div>
 
       </div>

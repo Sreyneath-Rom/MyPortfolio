@@ -44,7 +44,6 @@ export const Hero: React.FC = () => {
       strings: [
         'Frontend Developer',
         'UI/UX Designer',
-        'React & Mobile Engineer'
       ],
       typeSpeed: 50,
       backSpeed: 30,
@@ -85,11 +84,7 @@ export const Hero: React.FC = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
-              <span>Available for Hire</span>
-              <span className="w-1 h-1 rounded-full bg-app-text/30" />
-              <span className="text-app-text/50 font-normal flex items-center gap-1">
-                <MapPin size={11} className="text-brand-primary" /> Phnom Penh, KH
-              </span>
+              <span>Open to Opportunities</span>
             </div>
 
             <div>
@@ -102,7 +97,6 @@ export const Hero: React.FC = () => {
             </div>
 
             <div className="h-8 sm:h-9 flex items-center justify-center lg:justify-start text-lg sm:text-xl md:text-2xl font-display font-semibold text-app-text/85">
-              <span className="text-app-text/50 mr-2 font-normal">Specialized in</span>
               <span ref={typedEl} className="text-brand-primary font-bold" />
             </div>
 
