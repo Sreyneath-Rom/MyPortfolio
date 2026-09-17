@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'motion/react';
 import { 
   Heart, 
   Github, 
@@ -7,10 +6,7 @@ import {
   Facebook, 
   Mail, 
   ArrowUp, 
-  Sparkles, 
-  ExternalLink,
-  Code2,
-  Cpu
+  Code2
 } from 'lucide-react';
 import { NAV_LINKS, PROJECTS_DATA } from '../data/portfolioData';
 
@@ -25,14 +21,12 @@ export const Footer: React.FC = () => {
   const topProjects = PROJECTS_DATA.slice(0, 4);
 
   return (
-    <footer className="relative z-10 pt-16 pb-12 px-4 md:px-8 neu-card !rounded-t-[40px] !rounded-b-none border-x-0 border-b-0 overflow-hidden transition-colors duration-500">
-      {/* Background Decor */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-primary/30 to-transparent pointer-events-none" />
+    <footer className="relative z-10 pt-16 pb-12 px-4 md:px-8 neu-card rounded-t-[40px]! rounded-b-none! border-x-0 border-b-0 overflow-hidden transition-colors duration-500">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-linear-to-r from-transparent via-brand-primary/30 to-transparent pointer-events-none" />
       <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-48 bg-brand-primary/10 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto space-y-12">
         
-        {/* Top Floating Action Bar: Back to Top & Quick Tag */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-8 border-b border-app-border/40">
           <div className="flex items-center gap-2 text-xs font-bold text-app-text/60">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
@@ -51,10 +45,8 @@ export const Footer: React.FC = () => {
           </button>
         </div>
 
-        {/* Main 4-Column Bento Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 items-start">
           
-          {/* Column 1: Brand & Bio (4 Cols) */}
           <div className="lg:col-span-4 space-y-4">
             <a href="#hero" className="flex items-center gap-3 group">
               <div className="w-11 h-11 neu-circle-btn rounded-full flex items-center justify-center text-brand-primary font-black text-lg group-hover:scale-105 transition-transform">
@@ -112,7 +104,6 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Column 2: Navigation Sitemap (2 Cols) */}
           <div className="lg:col-span-2 space-y-4">
             <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-app-text/40">
               Navigation
@@ -132,7 +123,6 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Column 3: Featured Works (3 Cols) */}
           <div className="lg:col-span-3 space-y-4">
             <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-app-text/40">
               Featured Systems
@@ -154,7 +144,6 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Column 4: Tech Ecosystem Pill & Status (3 Cols) */}
           <div className="lg:col-span-3 space-y-4">
             <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-app-text/40">
               Engineering Stack
@@ -180,7 +169,6 @@ export const Footer: React.FC = () => {
 
         </div>
 
-        {/* Bottom Bar: Copyright & Location Credits */}
         <div className="pt-8 border-t border-app-border/40 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-app-text/50">
           <div className="flex flex-wrap items-center gap-2 text-center sm:text-left">
             <span>&copy; {new Date().getFullYear()} Rom Sreyneath.</span>

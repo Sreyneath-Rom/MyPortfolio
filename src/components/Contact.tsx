@@ -14,8 +14,7 @@ import {
   Sparkles, 
   MessageSquare,
   ArrowUpRight,
-  ShieldCheck,
-  Code2
+  ShieldCheck
 } from 'lucide-react';
 
 export const Contact: React.FC = () => {
@@ -48,7 +47,6 @@ export const Contact: React.FC = () => {
     if (!formData.name || !formData.email || !formData.message) return;
     
     setIsSubmitting(true);
-    // Simulate interactive submission state
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
@@ -97,13 +95,11 @@ export const Contact: React.FC = () => {
 
   return (
     <section id="contact" className="py-24 px-4 md:px-8 relative overflow-hidden bg-app-bg transition-colors duration-500">
-      {/* Background Decor Ambient Spheres */}
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-brand-primary/10 blur-[140px] rounded-full pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-brand-secondary/10 blur-[150px] rounded-full pointer-events-none" />
       
       <div className="max-w-7xl mx-auto relative z-10">
         
-        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 md:mb-18">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full neu-pill text-xs font-bold text-brand-primary uppercase tracking-[0.25em] mb-4">
             <Sparkles size={14} className="text-brand-primary animate-pulse" />
@@ -119,13 +115,10 @@ export const Contact: React.FC = () => {
           </p>
         </div>
 
-        {/* Main Interactive Grid: Info Card on Left, Form on Right */}
         <div className="grid lg:grid-cols-12 gap-8 items-start">
           
-          {/* Left Column: Direct Details & Status (5 Cols) */}
           <div className="lg:col-span-5 space-y-6">
             
-            {/* Status & Availability Card */}
             <div className="neu-card p-6 sm:p-8 rounded-3xl space-y-6">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold uppercase tracking-wider text-app-text/50 flex items-center gap-1.5">
@@ -148,7 +141,6 @@ export const Contact: React.FC = () => {
                 </p>
               </div>
 
-              {/* Direct Email with Quick Copy */}
               <div className="p-4 rounded-2xl neu-inset flex items-center justify-between gap-3">
                 <div className="flex items-center gap-3 overflow-hidden">
                   <div className="w-10 h-10 rounded-xl neu-circle-btn text-brand-primary flex items-center justify-center shrink-0">
@@ -181,7 +173,6 @@ export const Contact: React.FC = () => {
                 </button>
               </div>
 
-              {/* Location & Timezone info */}
               <div className="grid grid-cols-2 gap-3 pt-2">
                 <div className="p-4 rounded-2xl neu-card-sm">
                   <div className="flex items-center gap-2 text-xs font-bold text-app-text mb-1">
@@ -201,7 +192,6 @@ export const Contact: React.FC = () => {
               </div>
             </div>
 
-            {/* Tactile Social Links Bento */}
             <div className="neu-card p-6 sm:p-8 rounded-3xl space-y-4">
               <div className="text-xs font-bold uppercase tracking-wider text-app-text/50">
                 Connect via Social Platforms
@@ -226,7 +216,7 @@ export const Contact: React.FC = () => {
                         <div className="text-xs font-bold text-app-text group-hover:text-brand-primary transition-colors">
                           {social.name}
                         </div>
-                        <div className="text-[10px] text-app-text/50 font-mono truncate max-w-[110px]">
+                        <div className="text-[10px] text-app-text/50 font-mono truncate max-w-27.5">
                           {social.handle}
                         </div>
                       </div>
@@ -239,7 +229,6 @@ export const Contact: React.FC = () => {
 
           </div>
 
-          {/* Right Column: Neumorphic Contact Form (7 Cols) */}
           <div className="lg:col-span-7">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -259,7 +248,6 @@ export const Contact: React.FC = () => {
 
               <form onSubmit={handleSubmit} className="space-y-5">
                 
-                {/* Inquiry Type Chips */}
                 <div>
                   <label className="block text-[11px] font-bold uppercase tracking-wider text-app-text/60 mb-2">
                     Inquiry Topic
@@ -284,7 +272,6 @@ export const Contact: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Name & Email Row */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-[11px] font-bold uppercase tracking-wider text-app-text/60 mb-2">
@@ -315,7 +302,6 @@ export const Contact: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Message Textarea */}
                 <div>
                   <div className="flex items-center justify-between mb-2">
                     <label className="block text-[11px] font-bold uppercase tracking-wider text-app-text/60">
@@ -335,7 +321,6 @@ export const Contact: React.FC = () => {
                   />
                 </div>
 
-                {/* Submit Action & Status Alerts */}
                 <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <button
                     type="submit"

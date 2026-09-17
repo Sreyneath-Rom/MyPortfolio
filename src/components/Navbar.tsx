@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
-  Home, 
-  User, 
-  LayoutGrid, 
-  Briefcase, 
-  Mail, 
-  ArrowUpRight
+  Home, User, LayoutGrid, Briefcase, Mail, ArrowUpRight
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -44,25 +39,19 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, onSectionSelect }
           const scrollHeight =
             document.documentElement.scrollHeight -
             document.documentElement.clientHeight;
-
           setScrollProgress(scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0);
           ticking = false;
         });
         ticking = true;
       }
     };
-
     window.addEventListener('scroll', updateScrollState, { passive: true });
     return () => window.removeEventListener('scroll', updateScrollState);
   }, []);
 
-  // Butter-smooth section scrolling with offset handling and immediate feedback
   const handleNavClick = (e: React.MouseEvent, id: string, href: string) => {
     e.preventDefault();
-    if (onSectionSelect) {
-      onSectionSelect(id);
-    }
-
+    onSectionSelect?.(id);
     const element = document.getElementById(id);
     if (element) {
       if (id === 'hero') {
@@ -71,10 +60,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, onSectionSelect }
         const headerOffset = 85;
         const elementPosition = element.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
+        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
       }
     } else {
       window.location.hash = href;
@@ -82,8 +68,6 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, onSectionSelect }
   };
 
   const currentActiveId = activeSection || 'hero';
-
-  // Tuned fluid spring transition for active indicator morphing
   const springTransition = {
     type: 'spring' as const,
     stiffness: 380,
@@ -93,20 +77,15 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, onSectionSelect }
 
   return (
     <>
-      {/* Precision Top Scroll Progress Bar */}
-      <div className="fixed top-0 left-0 h-[2.5px] w-full overflow-hidden bg-white/5 pointer-events-none z-50">
+      {/* Scroll Progress */}
+      <div className="fixed top-0 left-0 h-[2.5px] w-full overflow-hidden bg-app-text/5 pointer-events-none z-50">
         <motion.div
           className="h-full bg-brand-primary transition-all duration-150 ease-out"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>
 
-      {/* 
-        ========================================================================
-        TOP HEADER BAR: DESKTOP & TABLET ADAPTIVE NAVIGATION
-        Features the ultra-fluid tactile capsule dock in the center
-        ========================================================================
-      */}
+      {/* TOP HEADER */}
       <header className="fixed inset-x-0 top-0 z-40 transition-all duration-500 ease-out pointer-events-none">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 pt-3 sm:pt-4">
           <nav
@@ -117,12 +96,11 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, onSectionSelect }
               pointer-events-auto
               transition-all duration-500 ease-out
               ${isScrolled 
-                ? 'neu-card-sm !rounded-full shadow-xl backdrop-blur-xl bg-app-bg/90 border border-white/10' 
+                ? 'neu-card-sm rounded-full! shadow-xl backdrop-blur-xl bg-app-bg/90 border border-app-text/10' 
                 : 'bg-transparent border border-transparent'
               }
             `}
           >
-            {/* Left: Brand Monogram & Rom Sreyneath Identity */}
             <a
               href="#hero"
               onClick={(e) => handleNavClick(e, 'hero', '#hero')}
@@ -136,7 +114,6 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, onSectionSelect }
               >
                 R
               </motion.span>
-
               <div className="flex flex-col">
                 <span className="text-sm sm:text-base md:text-lg font-display font-bold tracking-tight text-app-text leading-tight group-hover:text-brand-primary transition-colors duration-300">
                   ROM<span className="text-brand-primary">.SREYNEATH</span>
@@ -147,22 +124,18 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, onSectionSelect }
               </div>
             </a>
 
-            {/* 
-              Center: DESKTOP & TABLET TACTILE CAPSULE DOCK (>= 768px)
-              Fluid morphing dock with layout animation & underglow
-            */}
+            {/* Desktop Capsule Dock */}
             <div className="hidden md:flex items-center justify-center">
               <motion.div 
                 layout
                 transition={springTransition}
-                className="flex items-center gap-1 sm:gap-1.5 p-1.5 bg-[#0e0e14]/95 backdrop-blur-2xl rounded-full border border-white/10 shadow-[0_12px_32px_rgba(0,0,0,0.45),inset_0_1px_1px_rgba(255,255,255,0.15)]"
+                className="flex items-center gap-1 sm:gap-1.5 p-1.5 neu-nav-dock rounded-full"
                 role="navigation"
                 aria-label="Desktop and Tablet Navigation"
               >
                 {NAV_ITEMS.map((item) => {
                   const isActive = currentActiveId === item.id;
                   const Icon = item.icon;
-
                   return (
                     <motion.a
                       layout
@@ -174,28 +147,25 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, onSectionSelect }
                         group relative flex items-center justify-center rounded-full cursor-pointer select-none
                         ${isActive 
                           ? 'px-4 py-2 text-white' 
-                          : 'w-10 h-10 text-white/55 hover:text-white hover:bg-white/5'
+                          : 'w-10 h-10 text-app-text/55 hover:text-app-text hover:bg-app-text/5'
                         }
                       `}
                       aria-label={item.label}
                     >
-                      {/* Active Tactile Elevated Pill with Ambient Glow & Spring Physics */}
                       {isActive && (
                         <>
                           <motion.div
                             layoutId="desktop-capsule-active-glow"
-                            className="absolute -inset-0.5 rounded-full bg-brand-primary/25 blur-md pointer-events-none"
+                            className="absolute -inset-0.5 rounded-full bg-brand-primary/30 blur-md pointer-events-none"
                             transition={springTransition}
                           />
                           <motion.div
                             layoutId="desktop-capsule-active-pill"
-                            className="absolute inset-0 bg-gradient-to-b from-[#2c2c36] to-[#1a1a22] rounded-full border border-white/20 shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),0_6px_16px_rgba(0,0,0,0.6)]"
+                            className="absolute inset-0 neu-nav-active-pill rounded-full"
                             transition={springTransition}
                           />
                         </>
                       )}
-
-                      {/* Tab Content: Icon + Smooth Blur-Fade Label */}
                       <div className="relative z-10 flex items-center gap-2">
                         <motion.div
                           animate={{ scale: isActive ? 1.05 : 1 }}
@@ -207,11 +177,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, onSectionSelect }
                             className={`transition-colors duration-200 ${
                               isActive 
                                 ? 'text-white stroke-[2.2]' 
-                                : 'text-white/60 stroke-[1.8] group-hover:text-white'
+                                : 'text-app-text/60 stroke-[1.8] group-hover:text-app-text'
                             }`} 
                           />
                         </motion.div>
-
                         <AnimatePresence mode="popLayout" initial={false}>
                           {isActive && (
                             <motion.span
@@ -227,10 +196,8 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, onSectionSelect }
                           )}
                         </AnimatePresence>
                       </div>
-
-                      {/* Tooltip on Hover for Inactive Items */}
                       {!isActive && (
-                        <span className="pointer-events-none absolute -bottom-8 opacity-0 group-hover:opacity-100 transition-all duration-200 px-2 py-0.5 rounded-md bg-black/90 backdrop-blur-md text-[10px] font-bold text-white shadow-lg whitespace-nowrap border border-white/10 z-30">
+                        <span className="pointer-events-none absolute -bottom-8 opacity-0 group-hover:opacity-100 transition-all duration-200 px-2 py-0.5 rounded-md bg-app-text text-app-bg text-[10px] font-bold shadow-lg whitespace-nowrap border border-app-text/10 z-30">
                           {item.label}
                         </span>
                       )}
@@ -240,13 +207,11 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, onSectionSelect }
               </motion.div>
             </div>
 
-            {/* Right: Quick CTA & Availability Indicators */}
             <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
               <span className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full neu-pill text-[10px] font-bold text-emerald-500">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                 <span>Available</span>
               </span>
-
               <a
                 href="#contact"
                 onClick={(e) => handleNavClick(e, 'contact', '#contact')}
@@ -260,23 +225,17 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, onSectionSelect }
         </div>
       </header>
 
-      {/* 
-        ========================================================================
-        PHONE FLOATING BOTTOM CAPSULE NAVIGATION BAR (< 768px)
-        Silky smooth spring transitions on mobile
-        ========================================================================
-      */}
+      {/* MOBILE BOTTOM DOCK */}
       <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 md:hidden pointer-events-auto select-none">
         <motion.nav 
           layout
           transition={springTransition}
-          className="flex items-center gap-1 p-1.5 bg-[#0c0c10]/95 backdrop-blur-2xl rounded-full border border-white/10 shadow-[0_20px_45px_rgba(0,0,0,0.7),inset_0_1px_1px_rgba(255,255,255,0.15)]"
+          className="flex items-center gap-1 p-1.5 neu-nav-dock rounded-full"
           aria-label="Mobile Bottom Navigation"
         >
           {NAV_ITEMS.map((item) => {
             const isActive = currentActiveId === item.id;
             const Icon = item.icon;
-
             return (
               <motion.a
                 layout
@@ -288,28 +247,25 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, onSectionSelect }
                   relative flex items-center justify-center rounded-full cursor-pointer select-none
                   ${isActive 
                     ? 'px-3.5 py-2 text-white' 
-                    : 'w-10 h-10 text-white/55 hover:text-white active:scale-95'
+                    : 'w-10 h-10 text-app-text/55 hover:text-app-text active:scale-95'
                   }
                 `}
                 aria-label={item.label}
               >
-                {/* Tactile Active Pill Capsule */}
                 {isActive && (
                   <>
                     <motion.div
                       layoutId="mobile-capsule-active-glow"
-                      className="absolute -inset-0.5 rounded-full bg-brand-primary/20 blur-md pointer-events-none"
+                      className="absolute -inset-0.5 rounded-full bg-brand-primary/25 blur-md pointer-events-none"
                       transition={springTransition}
                     />
                     <motion.div
                       layoutId="mobile-capsule-active-pill"
-                      className="absolute inset-0 bg-gradient-to-b from-[#282830] to-[#1c1c22] rounded-full border border-white/20 shadow-[inset_0_1px_1px_rgba(255,255,255,0.25),0_6px_16px_rgba(0,0,0,0.6)]"
+                      className="absolute inset-0 neu-nav-active-pill rounded-full"
                       transition={springTransition}
                     />
                   </>
                 )}
-
-                {/* Tab Content: Icon + Smooth Blur-Fade Label */}
                 <div className="relative z-10 flex items-center gap-1.5">
                   <motion.div
                     animate={{ scale: isActive ? 1.05 : 1 }}
@@ -321,11 +277,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, onSectionSelect }
                       className={`transition-colors duration-200 ${
                         isActive 
                           ? 'text-white stroke-[2.2]' 
-                          : 'text-white/60 stroke-[1.8]'
+                          : 'text-app-text/60 stroke-[1.8]'
                       }`} 
                     />
                   </motion.div>
-
                   <AnimatePresence mode="popLayout" initial={false}>
                     {isActive && (
                       <motion.span

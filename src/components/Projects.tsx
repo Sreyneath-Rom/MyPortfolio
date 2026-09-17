@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   Sparkles, 
@@ -7,10 +7,7 @@ import {
   ArrowUpRight, 
   ExternalLink, 
   Github, 
-  Layers, 
-  Code2, 
-  SlidersHorizontal,
-  FolderGit2
+  SlidersHorizontal
 } from 'lucide-react';
 import { Project } from '../types';
 import { PROJECTS_DATA } from '../data/portfolioData';
@@ -20,12 +17,6 @@ export const Projects: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [activeFilter, setActiveFilter] = useState<'All' | Project['category']>('All');
   const [searchQuery, setSearchQuery] = useState('');
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 300);
-    return () => clearTimeout(timer);
-  }, []);
 
   const filteredProjects = PROJECTS_DATA.filter((p) => {
     const matchesFilter = activeFilter === 'All' || p.category === activeFilter;
@@ -49,13 +40,11 @@ export const Projects: React.FC = () => {
 
   return (
     <section id="projects" className="py-24 px-4 md:px-8 relative overflow-hidden bg-app-bg transition-colors duration-500">
-      {/* Background Glows */}
       <div className="absolute top-1/3 -left-20 w-80 h-80 bg-brand-primary/10 blur-[130px] rounded-full pointer-events-none" />
       <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-brand-secondary/10 blur-[140px] rounded-full pointer-events-none" />
       
       <div className="max-w-7xl mx-auto relative z-10">
         
-        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full neu-pill text-xs font-bold text-brand-primary uppercase tracking-[0.25em] mb-4">
             <Sparkles size={14} className="text-brand-primary animate-pulse" />
@@ -71,10 +60,8 @@ export const Projects: React.FC = () => {
           </p>
         </div>
 
-        {/* Interactive Controls Bar: Neumorphic Segment Switcher & Search */}
         <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 mb-10 md:mb-12">
           
-          {/* Category Filter Pills in Inset Track */}
           <div className="flex items-center gap-1.5 p-1.5 neu-inset rounded-2xl overflow-x-auto">
             {filterOptions.map((tab) => {
               const isActive = activeFilter === tab.value;
@@ -86,7 +73,7 @@ export const Projects: React.FC = () => {
                     flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer
                     ${isActive 
                       ? 'neu-btn-purple text-white shadow-md' 
-                      : 'text-app-text/60 hover:text-app-text neu-btn !shadow-none !border-transparent bg-transparent hover:bg-white/5'
+                      : 'text-app-text/60 hover:text-app-text neu-btn shadow-none! border-transparent! bg-transparent hover:bg-app-text/5'
                     }
                   `}
                 >
@@ -99,7 +86,6 @@ export const Projects: React.FC = () => {
             })}
           </div>
 
-          {/* Search Input Box */}
           <div className="relative w-full lg:w-80">
             <input
               type="text"
@@ -121,7 +107,6 @@ export const Projects: React.FC = () => {
           </div>
         </div>
 
-        {/* Active Results Counter */}
         <div className="flex items-center justify-between mb-6 text-xs text-app-text/60">
           <div className="flex items-center gap-2">
             <SlidersHorizontal size={14} className="text-brand-primary" />
@@ -134,7 +119,6 @@ export const Projects: React.FC = () => {
           )}
         </div>
 
-        {/* Projects Bento / Grid */}
         {filteredProjects.length === 0 ? (
           <div className="neu-card rounded-3xl p-12 text-center max-w-md mx-auto my-12 space-y-4">
             <div className="w-14 h-14 rounded-2xl neu-inset flex items-center justify-center text-app-text/40 mx-auto">
@@ -169,25 +153,23 @@ export const Projects: React.FC = () => {
                   className="neu-card rounded-3xl overflow-hidden flex flex-col justify-between transition-all group cursor-pointer"
                   onClick={() => setSelectedProject(project)}
                 >
-                  {/* Top Image Frame */}
                   <div className="p-4 pb-0">
                     <div className="aspect-video relative overflow-hidden rounded-2xl neu-inset">
                       <img 
                         src={project.image} 
                         alt={project.title}
+                        loading="lazy"
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         referrerPolicy="no-referrer"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                      <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
 
-                      {/* Category Badge on Image */}
                       <div className="absolute top-3 left-3">
                         <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-black/40 backdrop-blur-md text-white border border-white/20">
                           {project.category}
                         </span>
                       </div>
 
-                      {/* Quick Action Overlay on Hover */}
                       <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
                         <div className="px-4 py-2 rounded-full neu-btn-primary text-white text-xs font-bold flex items-center gap-1.5 shadow-xl">
                           <span>Case Study</span>
@@ -197,7 +179,6 @@ export const Projects: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Card Body */}
                   <div className="p-5 md:p-6 flex-1 flex flex-col justify-between space-y-4">
                     <div>
                       <h3 className="text-lg md:text-xl font-display font-bold text-app-text group-hover:text-brand-primary transition-colors line-clamp-1 mb-2">
@@ -208,7 +189,6 @@ export const Projects: React.FC = () => {
                       </p>
                     </div>
 
-                    {/* Tech Badges */}
                     <div className="space-y-3">
                       <div className="flex flex-wrap gap-1.5">
                         {project.tech.slice(0, 3).map((tech) => (
@@ -226,7 +206,6 @@ export const Projects: React.FC = () => {
                         )}
                       </div>
 
-                      {/* Footer Actions */}
                       <div className="pt-3 border-t border-app-border/30 flex items-center justify-between">
                         <span className="text-xs font-bold text-brand-primary flex items-center gap-1 group-hover:underline">
                           View Details <ArrowUpRight size={14} />
@@ -268,7 +247,6 @@ export const Projects: React.FC = () => {
 
       </div>
 
-      {/* Modern Neumorphic Project Detail Modal */}
       <AnimatePresence>
         {selectedProject && (
           <ProjectModal 

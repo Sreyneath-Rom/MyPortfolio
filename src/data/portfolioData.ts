@@ -229,34 +229,54 @@ export const EXPERIENCES_DATA: Experience[] = [
 ];
 
 export const TECHNICAL_SKILLS = [
+  // Frontend
   'React 19 & TypeScript',
-  'Node.js & Express',
-  'PostgreSQL 16',
-  'Prisma 7 (ORM)',
+  'JavaScript (ES6+)',
+  'HTML5 / CSS3 / SASS',
   'Tailwind CSS',
+  'Bootstrap 5',
+  'Vue.js',
   'React Router & Redux Toolkit',
   'React Hook Form & Zod',
+  // Backend & Database
+  'Node.js & Express',
+  'REST API Development',
+  'PostgreSQL 16',
+  'MySQL / MariaDB',
+  'Prisma 7 (ORM)',
+  'PHP (7.4+) & Laravel',
+  'OOP with TypeScript',
   'JWT Auth & API Security',
   'Swagger API Documentation',
+  // Mobile & Scripting
   'Flutter & Dart',
-  'PHP (7.4+) & Laravel',
-  'MySQL / MariaDB',
+  'React Native / Expo',
   'Python & Tkinter',
-  'HTML5 / CSS3 / SASS',
+  'Python (Algorithms)',
+  // Data & Analytics
+  'Data Analytics',
+  'Power BI',
+  // CMS
+  'WordPress',
 ];
 
 export const TOOLS_AND_PLATFORMS = [
   'Figma (UI/UX)',
+  'Canva',
   'Vite',
   'Composer',
   'Postman',
   'Swagger UI',
-  'Git / GitHub /GitLab',
+  'Git / GitHub / GitLab',
   'Prisma Studio / pgAdmin',
   'Linux (Ubuntu)',
+  'AWS (EC2)',
   'Firebase',
-  'CapCut',
   'Jira / ClickUp',
+  'MS Office (Word, Excel, PowerPoint)',
+  'AI Tools (ChatGPT, Gemini, etc.)',
+  'Power BI',
+  'CapCut',
 ];
 
 export const WORKSHOPS = [

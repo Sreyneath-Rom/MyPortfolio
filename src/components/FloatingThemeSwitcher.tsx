@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Moon, Sun, Palette, Sparkles } from 'lucide-react';
+import { Moon, Sun, Palette } from 'lucide-react';
 import { Theme } from '../types';
 
 export const THEMES = [
@@ -52,7 +52,7 @@ export const FloatingThemeSwitcher: React.FC<FloatingThemeSwitcherProps> = ({ cu
   const currentThemeIcon = THEMES.find(t => t.id === currentTheme)?.icon;
 
   return (
-    <div ref={containerRef} className="fixed bottom-24 right-4 md:bottom-10 md:right-10 z-[100] flex flex-col items-end gap-3">
+    <div ref={containerRef} className="fixed bottom-24 right-4 md:bottom-10 md:right-10 z-100 flex flex-col items-end gap-3">
       <AnimatePresence>
         {isOpen && (
           <motion.div 
@@ -73,7 +73,7 @@ export const FloatingThemeSwitcher: React.FC<FloatingThemeSwitcherProps> = ({ cu
                   flex w-full items-center gap-3
                   rounded-2xl px-4 py-2.5
                   text-xs font-bold transition-all cursor-pointer
-                  ${currentTheme === theme.id ? 'neu-btn-purple text-white shadow-md' : 'text-app-text/80 hover:text-app-text neu-btn !shadow-sm'}
+                  ${currentTheme === theme.id ? 'neu-btn-purple text-white shadow-md' : 'text-app-text/80 hover:text-app-text neu-btn shadow-sm!'}
                 `}
               >
                 <div className={`h-4 w-4 rounded-full ${theme.color} shrink-0`} />

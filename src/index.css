@@ -10,21 +10,21 @@
   --color-brand-secondary: var(--secondary);
   --color-app-bg: var(--bg);
   --color-app-text: var(--text);
+  --color-app-border: var(--neu-border);
 
-  --color-card-bg: var(--glass-bg);
-  --color-card-border: var(--glass-border);
+  --color-card-bg: var(--neu-surface);
+  --color-card-border: var(--neu-border);
 
-  /* Fluid Typography */
-  --text-xs: clamp(0.7rem, 0.65rem + 0.2vw, 0.8rem);
-  --text-sm: clamp(0.85rem, 0.8rem + 0.2vw, 0.95rem);
-  --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
-  --text-lg: clamp(1.125rem, 1.05rem + 0.35vw, 1.3rem);
-  --text-xl: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
-  --text-2xl: clamp(1.5rem, 1.35rem + 0.75vw, 1.85rem);
-  --text-3xl: clamp(1.875rem, 1.6rem + 1.25vw, 2.5rem);
-  --text-4xl: clamp(2.25rem, 1.85rem + 2vw, 3.5rem);
-  --text-5xl: clamp(3rem, 2.4rem + 3vw, 4.5rem);
-  --text-6xl: clamp(3.75rem, 3rem + 4vw, 6rem);
+  --text-xs:   clamp(0.7rem,   0.65rem + 0.2vw,  0.8rem);
+  --text-sm:   clamp(0.85rem,  0.8rem  + 0.2vw,  0.95rem);
+  --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+  --text-lg:   clamp(1.125rem, 1.05rem + 0.35vw, 1.3rem);
+  --text-xl:   clamp(1.25rem,  1.15rem + 0.5vw,  1.5rem);
+  --text-2xl:  clamp(1.5rem,   1.35rem + 0.75vw, 1.85rem);
+  --text-3xl:  clamp(1.875rem, 1.6rem  + 1.25vw, 2.5rem);
+  --text-4xl:  clamp(2.25rem,  1.85rem + 2vw,    3.5rem);
+  --text-5xl:  clamp(3rem,     2.4rem  + 3vw,    4.5rem);
+  --text-6xl:  clamp(3.75rem,  3rem    + 4vw,    6rem);
 }
 
 html {
@@ -33,18 +33,15 @@ html {
 }
 
 /* =========================
-   UNIVERSAL NEUMORPHIC THEMES
+   THEMES
 ========================= */
 
 :root,
 .theme-dark {
   --bg: #14171f;
   --text: #f1f5f9;
-
   --primary: #a855f7;
   --secondary: #8b5cf6;
-
-  /* Neumorphic Tokens (Dark Graphite Physics) */
   --neu-surface: #14171f;
   --neu-shadow-dark: #0b0d13;
   --neu-shadow-light: #1f232f;
@@ -56,24 +53,13 @@ html {
   --neu-accent-gradient: linear-gradient(145deg, #a855f7, #8b5cf6);
   --neu-accent-gradient-hover: linear-gradient(145deg, #9333ea, #7c3aed);
   --neu-accent-glow: rgba(168, 85, 247, 0.35);
-
-  --glass-bg: #14171f;
-  --glass-bg-strong: #1b1f2a;
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-highlight: rgba(255, 255, 255, 0.12);
-  --glass-shadow: 8px 8px 18px #0b0d13, -8px -8px 18px #1f232f;
-  --glass-inner-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.06);
-  --glass-blur: 0px;
 }
 
 .theme-light {
   --bg: #ebf0f7;
   --text: #1e293b;
-
   --primary: #8b5cf6;
   --secondary: #7c3aed;
-
-  /* Neumorphic Tokens (Daylight Soft Physics) */
   --neu-surface: #ebf0f7;
   --neu-shadow-dark: #cad4e2;
   --neu-shadow-light: #ffffff;
@@ -85,24 +71,13 @@ html {
   --neu-accent-gradient: linear-gradient(145deg, #8b5cf6, #7c3aed);
   --neu-accent-gradient-hover: linear-gradient(145deg, #7c3aed, #6d28d9);
   --neu-accent-glow: rgba(139, 92, 246, 0.35);
-
-  --glass-bg: #ebf0f7;
-  --glass-bg-strong: #f1f5fa;
-  --glass-border: rgba(255, 255, 255, 0.85);
-  --glass-highlight: rgba(255, 255, 255, 1);
-  --glass-shadow: 9px 9px 20px #cad4e2, -9px -9px 20px #ffffff;
-  --glass-inner-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.9);
-  --glass-blur: 0px;
 }
 
 .theme-midnight {
   --bg: #080c16;
   --text: #f8fafc;
-
   --primary: #38bdf8;
   --secondary: #818cf8;
-
-  /* Neumorphic Tokens (Midnight Ocean Physics) */
   --neu-surface: #080c16;
   --neu-shadow-dark: #03050a;
   --neu-shadow-light: #11182c;
@@ -114,24 +89,13 @@ html {
   --neu-accent-gradient: linear-gradient(145deg, #38bdf8, #0284c7);
   --neu-accent-gradient-hover: linear-gradient(145deg, #0284c7, #0369a1);
   --neu-accent-glow: rgba(56, 189, 248, 0.35);
-
-  --glass-bg: #080c16;
-  --glass-bg-strong: #0f172a;
-  --glass-border: rgba(56, 189, 248, 0.12);
-  --glass-highlight: rgba(56, 189, 248, 0.2);
-  --glass-shadow: 8px 8px 20px #03050a, -8px -8px 20px #11182c;
-  --glass-inner-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.08);
-  --glass-blur: 0px;
 }
 
 .theme-nord {
   --bg: #2e3440;
   --text: #eceff4;
-
   --primary: #88c0d0;
   --secondary: #81a1c1;
-
-  /* Neumorphic Tokens (Nord Arctic Physics) */
   --neu-surface: #2e3440;
   --neu-shadow-dark: #212630;
   --neu-shadow-light: #3c4454;
@@ -143,14 +107,6 @@ html {
   --neu-accent-gradient: linear-gradient(145deg, #88c0d0, #81a1c1);
   --neu-accent-gradient-hover: linear-gradient(145deg, #81a1c1, #5e81ac);
   --neu-accent-glow: rgba(136, 192, 208, 0.35);
-
-  --glass-bg: #2e3440;
-  --glass-bg-strong: #3b4252;
-  --glass-border: rgba(255, 255, 255, 0.09);
-  --glass-highlight: rgba(255, 255, 255, 0.15);
-  --glass-shadow: 8px 8px 18px #212630, -8px -8px 18px #3c4454;
-  --glass-inner-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.08);
-  --glass-blur: 0px;
 }
 
 /* =========================
@@ -166,207 +122,59 @@ html {
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h1, h2, h3, h4, h5, h6 {
     @apply font-display tracking-tight text-app-text;
   }
 }
 
 /* =========================
-   GLASS COMPONENTS
-========================= */
-
-.glass-card {
-  position: relative;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,0.10) 0%,
-      rgba(255,255,255,0.03) 100%
-    );
-
-  background-color: var(--glass-bg);
-
-  border: 1px solid var(--glass-border);
-
-  border-radius: 32px;
-
-  backdrop-filter:
-    blur(var(--glass-blur))
-    saturate(180%);
-
-  -webkit-backdrop-filter:
-    blur(var(--glass-blur))
-    saturate(180%);
-
-  box-shadow:
-    var(--glass-shadow),
-    var(--glass-inner-shadow);
-
-  transition:
-    transform 0.3s ease,
-    background 0.3s ease,
-    border-color 0.3s ease;
-}
-
-.glass-card::before {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  border-radius: inherit;
-
-  padding: 1px;
-
-  background:
-    linear-gradient(
-      180deg,
-      var(--glass-highlight),
-      transparent 40%
-    );
-
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-
-  pointer-events: none;
-}
-
-.glass-card:hover {
-  transform: translateY(-2px);
-
-  border-color: rgba(255,255,255,0.18);
-
-  background-color: var(--glass-bg-strong);
-}
-
-/* =========================
-   GLASS NAVBAR
-========================= */
-
-.glass-sheet {
-  position: relative;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,0.08),
-      rgba(255,255,255,0.03)
-    );
-
-  background-color: var(--glass-bg);
-
-  border-bottom: 1px solid var(--glass-border);
-
-  backdrop-filter:
-    blur(calc(var(--glass-blur) * 1.5))
-    saturate(180%);
-
-  -webkit-backdrop-filter:
-    blur(calc(var(--glass-blur) * 1.5))
-    saturate(180%);
-
-  box-shadow:
-    0 10px 40px rgba(0,0,0,0.18);
-}
-
-/* =========================
-   PILLS
-========================= */
-
-.glass-pill {
-  background: rgba(255,255,255,0.06);
-
-  border: 1px solid rgba(255,255,255,0.12);
-
-  backdrop-filter: blur(12px);
-
-  border-radius: 999px;
-
-  padding: 0.45rem 1rem;
-
-  font-size: 0.75rem;
-  font-weight: 600;
-
-  transition: all 0.25s ease;
-}
-
-.glass-pill:hover {
-  background: rgba(255,255,255,0.12);
-
-  border-color: rgba(255,255,255,0.18);
-
-  transform: translateY(-1px);
-}
-
-/* =========================
-   TEXT
+   TEXT GRADIENT
 ========================= */
 
 .text-gradient {
-  @apply bg-clip-text text-transparent;
-  background-image:
-    linear-gradient(
-      135deg,
-      var(--primary),
-      var(--secondary)
-    );
+  background: var(--neu-accent-gradient) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* =========================
+   NOISE TEXTURE OVERLAY
+   Self-contained SVG noise (no external CDN, no 404s)
+========================= */
+
+.noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
 }
 
 /* =========================
    UTILITIES
 ========================= */
 
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
 /* =========================
    ANIMATIONS
 ========================= */
 
 @keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 @keyframes marquee-right {
-  0% {
-    transform: translateX(-50%);
-  }
-  100% {
-    transform: translateX(0);
-  }
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
 }
 
-.animate-marquee {
-  animation: marquee 40s linear infinite;
-}
-
-.animate-marquee-right {
-  animation: marquee-right 40s linear infinite;
-}
+.animate-marquee       { animation: marquee 40s linear infinite; }
+.animate-marquee-right { animation: marquee-right 40s linear infinite; }
 
 /* =========================================================================
-   UNIVERSAL NEUMORPHIC & MODERN UTILITIES (ADAPTS TO ALL THEME MODES)
+   NEUMORPHIC UTILITIES (theme-aware)
    ========================================================================= */
 
 .neu-card {
@@ -376,7 +184,6 @@ html {
   box-shadow: 9px 9px 20px var(--neu-shadow-dark), -9px -9px 20px var(--neu-shadow-light);
   transition: all 0.25s ease;
 }
-
 .neu-card:hover {
   box-shadow: 11px 11px 24px var(--neu-shadow-dark), -11px -11px 24px var(--neu-shadow-light);
   transform: translateY(-2px);
@@ -397,7 +204,6 @@ html {
   box-shadow: 14px 14px 28px var(--neu-shadow-dark), -14px -14px 28px var(--neu-shadow-light);
 }
 
-/* Extruded Clickable Button */
 .neu-btn {
   background: var(--neu-surface);
   border-radius: 16px;
@@ -407,20 +213,17 @@ html {
   color: var(--neu-btn-text);
   cursor: pointer;
 }
-
 .neu-btn:hover {
   border-color: var(--neu-border);
   box-shadow: 4px 4px 10px var(--neu-shadow-dark), -4px -4px 10px var(--neu-shadow-light);
   color: var(--neu-btn-text-hover);
 }
-
 .neu-btn:active, .neu-btn-active {
   background: var(--neu-surface);
   box-shadow: inset 4px 4px 8px var(--neu-shadow-dark), inset -4px -4px 8px var(--neu-shadow-light) !important;
   transform: scale(0.99);
 }
 
-/* Circular Neumorphic Icon Button (Matching UI Kit Circles) */
 .neu-circle-btn {
   background: var(--neu-surface);
   border-radius: 9999px;
@@ -433,19 +236,16 @@ html {
   color: var(--neu-btn-text);
   cursor: pointer;
 }
-
 .neu-circle-btn:hover {
   box-shadow: 4px 4px 10px var(--neu-shadow-dark), -4px -4px 10px var(--neu-shadow-light);
   color: var(--primary);
 }
-
 .neu-circle-btn:active, .neu-circle-btn-active {
   box-shadow: inset 4px 4px 8px var(--neu-shadow-dark), inset -4px -4px 8px var(--neu-shadow-light) !important;
   color: var(--primary);
   transform: scale(0.97);
 }
 
-/* Modern Gradient Accent Button */
 .neu-btn-purple,
 .neu-btn-primary {
   background: var(--neu-accent-gradient);
@@ -456,64 +256,34 @@ html {
   transition: all 0.2s ease;
   cursor: pointer;
 }
-
 .neu-btn-purple:hover,
 .neu-btn-primary:hover {
   background: var(--neu-accent-gradient-hover);
   box-shadow: 3px 3px 10px var(--neu-shadow-dark), -3px -3px 10px var(--neu-shadow-light), 0 6px 20px var(--neu-accent-glow);
 }
-
 .neu-btn-purple:active,
 .neu-btn-primary:active {
   box-shadow: inset 3px 3px 7px rgba(0, 0, 0, 0.3), inset -3px -3px 7px rgba(255, 255, 255, 0.15) !important;
   transform: scale(0.99);
 }
 
-.neu-btn-danger {
-  background: linear-gradient(145deg, #f87171, #ef4444);
-  color: #ffffff;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 4px 4px 12px var(--neu-shadow-dark), -4px -4px 12px var(--neu-shadow-light), 0 4px 12px rgba(239, 68, 68, 0.25);
-  transition: all 0.18s ease;
-}
-
-.neu-btn-danger:active {
-  box-shadow: inset 3px 3px 7px rgba(0, 0, 0, 0.2), inset -3px -3px 7px rgba(255, 255, 255, 0.1) !important;
-}
-
-/* Inset Capsule & Box Inputs (Matching Search & Password in Reference) */
-.neu-input {
-  background: var(--neu-surface);
-  border-radius: 16px;
-  box-shadow: inset 4px 4px 8px var(--neu-shadow-dark), inset -4px -4px 8px var(--neu-shadow-light);
-  border: 1px solid var(--neu-border-inset);
-  color: var(--text);
-  transition: all 0.2s ease;
-}
-
-.neu-input:focus {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: inset 4px 4px 8px var(--neu-shadow-dark), inset -4px -4px 8px var(--neu-shadow-light), 0 0 0 2px var(--neu-accent-glow);
-}
-
+.neu-input,
 .neu-capsule-input {
   background: var(--neu-surface);
-  border-radius: 9999px;
   box-shadow: inset 4px 4px 8px var(--neu-shadow-dark), inset -4px -4px 8px var(--neu-shadow-light);
   border: 1px solid var(--neu-border-inset);
   color: var(--text);
   transition: all 0.2s ease;
 }
-
+.neu-input         { border-radius: 16px; }
+.neu-capsule-input { border-radius: 9999px; }
+.neu-input:focus,
 .neu-capsule-input:focus {
   outline: none;
   border-color: var(--primary);
   box-shadow: inset 4px 4px 8px var(--neu-shadow-dark), inset -4px -4px 8px var(--neu-shadow-light), 0 0 0 2px var(--neu-accent-glow);
 }
 
-/* Pill Badges */
 .neu-pill {
   background: var(--neu-surface);
   border-radius: 9999px;
@@ -522,7 +292,6 @@ html {
   color: var(--neu-btn-text);
   transition: all 0.18s ease;
 }
-
 .neu-pill:hover {
   color: var(--primary);
   box-shadow: 2px 2px 6px var(--neu-shadow-dark), -2px -2px 6px var(--neu-shadow-light);
@@ -543,7 +312,6 @@ html {
   box-shadow: inset 4px 4px 8px var(--neu-shadow-dark), inset -4px -4px 8px var(--neu-shadow-light);
 }
 
-/* Neumorphic Speech Bubble (Matching chat/heart icon bubble in reference) */
 .neu-bubble {
   position: relative;
   background: var(--neu-surface);
@@ -551,7 +319,6 @@ html {
   border: 1px solid var(--neu-border);
   box-shadow: 6px 6px 14px var(--neu-shadow-dark), -6px -6px 14px var(--neu-shadow-light);
 }
-
 .neu-bubble::after {
   content: '';
   position: absolute;
@@ -564,7 +331,6 @@ html {
   border-top: 8px solid var(--neu-bubble-arrow);
 }
 
-/* Toggle Switch (Pixel-perfect: off = inset cavity, on = theme gradient) */
 .neu-toggle {
   background: var(--neu-surface);
   border-radius: 9999px;
@@ -573,13 +339,11 @@ html {
   position: relative;
   transition: all 0.3s ease;
 }
-
 .neu-toggle-active {
   background: var(--neu-accent-gradient);
   box-shadow: inset 2px 2px 5px rgba(0,0,0,0.25), inset -2px -2px 5px rgba(255,255,255,0.2);
   border: 1px solid rgba(255, 255, 255, 0.25);
 }
-
 .neu-toggle-handle {
   background: var(--neu-surface);
   border-radius: 9999px;
@@ -593,7 +357,6 @@ html {
   border-radius: 9999px;
   box-shadow: inset 3px 3px 6px var(--neu-shadow-dark), inset -3px -3px 6px var(--neu-shadow-light);
 }
-
 .neu-thumb {
   background: var(--neu-surface);
   box-shadow: 4px 4px 8px var(--neu-shadow-dark), -4px -4px 8px var(--neu-shadow-light);
@@ -602,7 +365,7 @@ html {
 }
 
 /* =========================================================================
-   THEMED NAVIGATION DOCK (ADAPTS TO ALL THEME MODES)
+   NAVIGATION DOCK
    ========================================================================= */
 
 .neu-nav-dock {
@@ -616,7 +379,6 @@ html {
   -webkit-backdrop-filter: blur(20px);
   transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
 }
-
 .theme-light .neu-nav-dock {
   background-color: rgba(235, 240, 247, 0.92);
   border: 1px solid rgba(255, 255, 255, 0.9);
@@ -635,7 +397,6 @@ html {
     -2px -2px 6px var(--neu-shadow-light);
   transition: background 0.4s ease, box-shadow 0.4s ease;
 }
-
 .theme-light .neu-nav-active-pill {
   border: 1px solid rgba(255, 255, 255, 0.6);
   box-shadow: 
@@ -645,7 +406,7 @@ html {
 }
 
 /* =========================================================================
-   UNIVERSAL GLASS & WEB HELPERS MAPPING TO NEUMORPHISM
+   BACKWARD-COMPAT GLASS ALIASES (mapped to Neumorphic)
    ========================================================================= */
 
 .glass-card {
@@ -653,11 +414,8 @@ html {
   border-radius: 24px !important;
   border: 1px solid var(--neu-border) !important;
   box-shadow: 9px 9px 20px var(--neu-shadow-dark), -9px -9px 20px var(--neu-shadow-light) !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
   transition: all 0.25s ease !important;
 }
-
 .glass-card:hover {
   box-shadow: 11px 11px 24px var(--neu-shadow-dark), -11px -11px 24px var(--neu-shadow-light) !important;
   transform: translateY(-2px);
@@ -667,8 +425,6 @@ html {
   background: var(--neu-surface) !important;
   border: 1px solid var(--neu-border) !important;
   box-shadow: 8px 8px 20px var(--neu-shadow-dark), -8px -8px 20px var(--neu-shadow-light) !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
 }
 
 .glass-pill {
@@ -678,38 +434,8 @@ html {
   color: var(--neu-btn-text) !important;
   border-radius: 9999px !important;
   transition: all 0.2s ease !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
 }
-
 .glass-pill:hover {
   box-shadow: 2px 2px 6px var(--neu-shadow-dark), -2px -2px 6px var(--neu-shadow-light) !important;
   color: var(--primary) !important;
 }
-
-.text-gradient {
-  background: var(--neu-accent-gradient) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-}
-
-/* Modern Web App helpers */
-.web-tab-active {
-  background: var(--neu-accent-gradient) !important;
-  border: 1px solid rgba(255, 255, 255, 0.25) !important;
-  color: #ffffff !important;
-  box-shadow: inset 2px 2px 5px rgba(0,0,0,0.25), inset -2px -2px 5px rgba(255,255,255,0.2), 0 4px 12px var(--neu-accent-glow) !important;
-}
-
-.web-glass-card {
-  background: var(--neu-surface);
-  border: 1px solid var(--neu-border);
-  box-shadow: 8px 8px 20px var(--neu-shadow-dark), -8px -8px 20px var(--neu-shadow-light);
-}
-
-.desktop-window-header {
-  background: var(--neu-surface);
-  border-bottom: 1px solid var(--neu-border);
-  box-shadow: 0 4px 12px var(--neu-shadow-dark);
-}
-

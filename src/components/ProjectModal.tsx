@@ -10,10 +10,6 @@ import {
   Layers, 
   Code2, 
   Server, 
-  Sparkles,
-  CheckCircle2,
-  FolderGit2,
-  Calendar,
   ArrowUpRight
 } from 'lucide-react';
 import { Project } from '../types';
@@ -24,7 +20,6 @@ interface ProjectModalProps {
 }
 
 export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
-  // Close on Escape key press and lock background scroll
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -44,7 +39,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[110] flex items-center justify-center p-3 sm:p-5 md:p-8 bg-black/60 backdrop-blur-md"
+      className="fixed inset-0 z-110 flex items-center justify-center p-3 sm:p-5 md:p-8 bg-black/60 backdrop-blur-md"
       onClick={onClose}
     >
       <motion.div 
@@ -55,7 +50,6 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         className="neu-card-lg w-full max-w-5xl max-h-[92vh] overflow-y-auto relative rounded-3xl group shadow-2xl border border-app-border/40"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Sticky Header Action Bar */}
         <div className="sticky top-0 z-30 flex items-center justify-between px-6 py-4 bg-app-bg/90 backdrop-blur-md border-b border-app-border/40 rounded-t-3xl">
           <div className="flex items-center gap-2.5">
             <span className="text-[10px] sm:text-xs font-bold px-3 py-1 rounded-full neu-pill text-brand-primary uppercase tracking-wider">
@@ -75,7 +69,6 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           </button>
         </div>
 
-        {/* Hero Visual Preview */}
         <div className="p-6 md:p-8 pb-0">
           <div className="relative aspect-video w-full overflow-hidden rounded-2xl neu-inset">
             <img 
@@ -84,9 +77,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
             
-            {/* Quick Action Badges on the image */}
             <div className="absolute bottom-4 left-4 right-4 flex flex-wrap items-center justify-between gap-3">
               <div className="flex flex-wrap gap-1.5">
                 {project.tech.slice(0, 4).map(t => (
@@ -129,10 +121,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           </div>
         </div>
 
-        {/* Content Details */}
         <div className="p-6 sm:p-8 md:p-10 space-y-8">
           
-          {/* Title and Short Summary */}
           <div>
             <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-tight text-app-text mb-3">
               {project.title}
@@ -142,15 +132,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             </p>
           </div>
 
-          {/* Main Grid: Problem/Solution on Left, Tech Architecture on Right */}
           <div className="grid lg:grid-cols-3 gap-8 items-start">
             
-            {/* Left 2-Column: Problem, Role, Solution */}
             <div className="lg:col-span-2 space-y-6">
               
-              {/* Problem Solved */}
               <div className="p-5 md:p-6 rounded-2xl neu-inset space-y-2.5">
-                <h4 className="text-sm md:text-base text-app-text font-bold flex items-center gap-2 text-brand-primary">
+                <h4 className="text-sm md:text-base font-bold flex items-center gap-2 text-brand-primary">
                   <Cpu size={18} />
                   The Problem & Motivation
                 </h4>
@@ -159,9 +146,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 </p>
               </div>
 
-              {/* My Role */}
               <div className="p-5 md:p-6 rounded-2xl neu-inset space-y-2.5">
-                <h4 className="text-sm md:text-base text-app-text font-bold flex items-center gap-2 text-brand-secondary">
+                <h4 className="text-sm md:text-base font-bold flex items-center gap-2 text-brand-secondary">
                   <User size={18} />
                   Role & Responsibilities
                 </h4>
@@ -170,9 +156,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 </p>
               </div>
 
-              {/* Solution & Tangible Impact */}
               <div className="p-5 md:p-6 rounded-2xl neu-card-sm space-y-2.5 border border-brand-primary/20">
-                <h4 className="text-sm md:text-base text-app-text font-bold flex items-center gap-2 text-brand-primary">
+                <h4 className="text-sm md:text-base font-bold flex items-center gap-2 text-brand-primary">
                   <Briefcase size={18} />
                   Solution & Measurable Impact
                 </h4>
@@ -181,7 +166,6 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 </p>
               </div>
 
-              {/* Frontend & Backend Architecture Breakdown (if exists) */}
               {(project.frontendTech || project.backendTech) && (
                 <div className="space-y-4 pt-2">
                   <h4 className="text-sm md:text-base text-app-text font-bold flex items-center gap-2">
@@ -227,10 +211,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
             </div>
 
-            {/* Right 1-Column: Project Meta & Quick Actions */}
             <div className="space-y-6">
               
-              {/* Meta Card */}
               <div className="neu-card rounded-2xl p-5 space-y-4">
                 <div className="text-xs font-bold uppercase tracking-wider text-app-text/50">
                   Project Specs
@@ -255,7 +237,6 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 </div>
               </div>
 
-              {/* Technologies Pill Grid */}
               <div className="neu-card rounded-2xl p-5 space-y-3">
                 <div className="text-xs font-bold uppercase tracking-wider text-app-text/50 flex items-center justify-between">
                   <span>Technologies</span>
@@ -274,7 +255,6 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 </div>
               </div>
 
-              {/* Action Buttons */}
               <div className="space-y-3">
                 {project.link && (
                   <a 
@@ -305,7 +285,6 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
           </div>
 
-          {/* Modal Footer */}
           <div className="pt-6 border-t border-app-border/40 flex items-center justify-between text-xs text-app-text/50">
             <span>Sreyneath Rom &bull; Engineering Portfolio</span>
             <button

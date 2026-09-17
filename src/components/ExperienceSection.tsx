@@ -16,7 +16,6 @@ import {
   Languages, 
   Layers, 
   ArrowUpRight, 
-  Compass, 
   Terminal, 
   Wrench,
   Check
@@ -28,67 +27,74 @@ type SkillCategory = 'all' | 'frontend' | 'backend' | 'mobile' | 'tools';
 
 export const ExperienceSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState<ViewTab>('all');
-  const [expandedId, setExpandedId] = useState<number | null>(1); // Default first one expanded
+  const [expandedId, setExpandedId] = useState<number | null>(1);
   const [skillFilter, setSkillFilter] = useState<SkillCategory>('all');
 
   const toggleExpand = (id: number) => {
     setExpandedId(prev => prev === id ? null : id);
   };
 
-  // Categorize skills for the interactive explorer
   const categorizedSkills = {
     frontend: [
       'React 19 & TypeScript',
-      'Tailwind CSS',
-      'React Router & Redux Toolkit',
+      'JavaScript (ES6+)',
       'HTML5 / CSS3 / SASS',
+      'Tailwind CSS',
+      'Bootstrap 5',
+      'Vue.js',
+      'React Router & Redux Toolkit',
       'React Hook Form & Zod',
     ],
     backend: [
       'Node.js & Express',
+      'REST API Development',
       'PostgreSQL 16',
+      'MySQL / MariaDB',
       'Prisma 7 (ORM)',
+      'PHP (7.4+) & Laravel',
+      'OOP with TypeScript',
       'JWT Auth & API Security',
       'Swagger API Documentation',
-      'PHP (7.4+) & Laravel',
-      'MySQL / MariaDB',
     ],
     mobile: [
       'Flutter & Dart',
-      'Python & Tkinter',
-      'Sunmi POS SDK',
       'React Native / Expo',
+      'Python & Tkinter',
+      'Python (Algorithms)',
+      'Sunmi POS SDK',
     ],
     tools: [
       'Figma (UI/UX)',
+      'Canva',
       'Vite',
+      'Composer',
       'Postman & Swagger UI',
       'Git / GitHub / GitLab',
       'Prisma Studio / pgAdmin',
       'Linux (Ubuntu)',
-      'Jira / ClickUp',
+      'AWS (EC2)',
       'Firebase',
-    ]
+      'Jira / ClickUp',
+      'WordPress',
+      'Data Analytics & Power BI',
+      'MS Office Suite',
+      'AI Tools (ChatGPT, Gemini)',
+      'CapCut',
+    ],
   };
 
   const getFilteredSkills = () => {
     if (skillFilter === 'all') return TECHNICAL_SKILLS;
-    if (skillFilter === 'frontend') return categorizedSkills.frontend;
-    if (skillFilter === 'backend') return categorizedSkills.backend;
-    if (skillFilter === 'mobile') return categorizedSkills.mobile;
-    if (skillFilter === 'tools') return categorizedSkills.tools;
-    return TECHNICAL_SKILLS;
+    return categorizedSkills[skillFilter] ?? TECHNICAL_SKILLS;
   };
 
   return (
     <section id="experience" className="py-24 px-4 md:px-8 relative overflow-hidden bg-app-bg transition-colors duration-500">
-      {/* Background Ambient Lights */}
       <div className="absolute top-1/4 -left-20 w-80 h-80 bg-brand-primary/10 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-brand-secondary/10 blur-[140px] rounded-full pointer-events-none" />
       
       <div className="max-w-7xl mx-auto relative z-10">
         
-        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full neu-pill text-xs font-bold text-brand-primary uppercase tracking-[0.25em] mb-4">
             <Sparkles size={14} className="text-brand-primary animate-pulse" />
@@ -104,7 +110,6 @@ export const ExperienceSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Quick Career Metrics Ribbon */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-12">
           <motion.div 
             whileHover={{ y: -3 }}
@@ -153,13 +158,14 @@ export const ExperienceSection: React.FC = () => {
               <Cpu size={22} />
             </div>
             <div>
-              <div className="text-2xl md:text-3xl font-display font-bold text-app-text">14+</div>
+              <div className="text-2xl md:text-3xl font-display font-bold text-app-text">
+                {TECHNICAL_SKILLS.length}+
+              </div>
               <div className="text-xs text-app-text/60 font-medium">Core Production Technologies</div>
             </div>
           </motion.div>
         </div>
 
-        {/* View Mode Navigation Tabs */}
         <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-12">
           {[
             { id: 'all' as ViewTab, label: 'Full Overview', icon: Layers },
@@ -185,10 +191,8 @@ export const ExperienceSection: React.FC = () => {
           })}
         </div>
 
-        {/* Main Content Area */}
         <div className="space-y-12">
           
-          {/* Work Experience Milestones (Visible on 'all' or 'experience') */}
           {(activeTab === 'all' || activeTab === 'experience') && (
             <div className="space-y-6">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2">
@@ -218,7 +222,6 @@ export const ExperienceSection: React.FC = () => {
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                       className="neu-card rounded-3xl p-6 md:p-8 transition-all relative overflow-hidden"
                     >
-                      {/* Top Row: Type & Timeline Meta */}
                       <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
                         <div className="flex flex-wrap items-center gap-2.5">
                           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full neu-pill text-xs font-bold text-brand-primary">
@@ -245,17 +248,14 @@ export const ExperienceSection: React.FC = () => {
                         </div>
                       </div>
 
-                      {/* Role Heading */}
                       <h4 className="text-xl md:text-2xl font-display font-bold text-app-text mb-3">
                         {exp.role}
                       </h4>
 
-                      {/* Primary Description */}
                       <p className="text-app-text/80 text-sm md:text-base leading-relaxed mb-5">
                         {exp.description}
                       </p>
 
-                      {/* Expandable Key Accomplishments & Deliverables */}
                       <AnimatePresence>
                         {isExpanded && exp.highlights && (
                           <motion.div
@@ -274,7 +274,7 @@ export const ExperienceSection: React.FC = () => {
                                 {exp.highlights.map((item, idx) => (
                                   <li key={idx} className="flex items-start gap-3 text-xs md:text-sm text-app-text/80 leading-relaxed">
                                     <div className="w-4 h-4 rounded-full neu-circle-btn text-brand-primary flex items-center justify-center shrink-0 mt-0.5">
-                                      <Check size={10} className="stroke-[3]" />
+                                      <Check size={10} className="stroke-3" />
                                     </div>
                                     <span>{item}</span>
                                   </li>
@@ -285,9 +285,7 @@ export const ExperienceSection: React.FC = () => {
                         )}
                       </AnimatePresence>
 
-                      {/* Bottom Row: Technologies & Toggle Button */}
                       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-3 border-t border-app-border/40">
-                        {/* Technology Badges */}
                         <div className="flex flex-wrap items-center gap-1.5">
                           {exp.technologies?.map((tech) => (
                             <span 
@@ -299,7 +297,6 @@ export const ExperienceSection: React.FC = () => {
                           ))}
                         </div>
 
-                        {/* Accordion Expand/Collapse Button */}
                         <button
                           onClick={() => toggleExpand(exp.id)}
                           className="inline-flex items-center gap-2 text-xs font-bold text-brand-primary hover:text-brand-secondary neu-btn px-4 py-2 rounded-xl self-start sm:self-auto cursor-pointer transition-all shrink-0"
@@ -315,7 +312,6 @@ export const ExperienceSection: React.FC = () => {
             </div>
           )}
 
-          {/* Technical Skills & Tools Matrix (Visible on 'all' or 'skills') */}
           {(activeTab === 'all' || activeTab === 'skills') && (
             <div className="neu-card rounded-3xl p-6 md:p-10 space-y-8">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-app-border/40">
@@ -329,7 +325,6 @@ export const ExperienceSection: React.FC = () => {
                   </p>
                 </div>
 
-                {/* Subcategory Pills */}
                 <div className="flex flex-wrap gap-1.5 self-start sm:self-auto">
                   {[
                     { id: 'all' as SkillCategory, label: 'All' },
@@ -352,7 +347,6 @@ export const ExperienceSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* Skills Grid */}
               <div>
                 <div className="text-xs font-bold uppercase tracking-wider text-app-text/50 mb-4 flex items-center gap-2">
                   <Terminal size={14} className="text-brand-primary" />
@@ -372,7 +366,6 @@ export const ExperienceSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* Tools & Platforms Section */}
               <div className="pt-4">
                 <div className="text-xs font-bold uppercase tracking-wider text-app-text/50 mb-4 flex items-center gap-2">
                   <Wrench size={14} className="text-brand-secondary" />
@@ -394,11 +387,9 @@ export const ExperienceSection: React.FC = () => {
             </div>
           )}
 
-          {/* Workshops & Languages Grid (Visible on 'all' or 'workshops') */}
           {(activeTab === 'all' || activeTab === 'workshops') && (
             <div className="grid md:grid-cols-3 gap-6">
               
-              {/* Workshops & Professional Training (2 Cols) */}
               <div className="md:col-span-2 neu-card rounded-3xl p-6 md:p-8 space-y-6">
                 <div>
                   <h3 className="text-lg md:text-xl font-display font-bold text-app-text flex items-center gap-2.5 mb-1">
@@ -411,7 +402,7 @@ export const ExperienceSection: React.FC = () => {
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-4">
-                  {WORKSHOPS.map((ws, index) => (
+                  {WORKSHOPS.map((ws) => (
                     <motion.div
                       key={ws.name}
                       whileHover={{ y: -2 }}
@@ -436,7 +427,6 @@ export const ExperienceSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* Language Proficiency & Global Working Readiness (1 Col) */}
               <div className="neu-card rounded-3xl p-6 md:p-8 flex flex-col justify-between gap-6">
                 <div>
                   <h3 className="text-lg md:text-xl font-display font-bold text-app-text flex items-center gap-2.5 mb-1">
@@ -449,7 +439,6 @@ export const ExperienceSection: React.FC = () => {
                 </div>
 
                 <div className="space-y-4">
-                  {/* Khmer */}
                   <div className="p-4 rounded-2xl neu-inset">
                     <div className="flex items-center justify-between mb-1.5">
                       <span className="font-bold text-sm text-app-text">Khmer (ភាសាខ្មែរ)</span>
@@ -460,7 +449,6 @@ export const ExperienceSection: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* English */}
                   <div className="p-4 rounded-2xl neu-inset">
                     <div className="flex items-center justify-between mb-1.5">
                       <span className="font-bold text-sm text-app-text">English</span>
@@ -483,7 +471,6 @@ export const ExperienceSection: React.FC = () => {
 
         </div>
 
-        {/* Bottom Interactive Callout Banner */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

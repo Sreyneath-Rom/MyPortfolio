@@ -7,15 +7,12 @@ import {
   Linkedin, 
   Facebook, 
   Mail, 
-  Sparkles, 
-  MapPin, 
-  Briefcase
+  MapPin
 } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   const typedEl = useRef<HTMLSpanElement>(null);
 
-  // Smooth interactive 3D cursor perspective tracking
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -71,21 +68,18 @@ export const Hero: React.FC = () => {
 
   return (
     <section id="hero" className="relative pt-28 pb-16 md:pt-36 md:pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden bg-app-bg transition-colors duration-500">
-      {/* Ambient background soft light glows */}
       <div className="absolute top-1/4 -left-28 w-96 h-96 bg-brand-primary/15 blur-[150px] rounded-full pointer-events-none -z-10" />
       <div className="absolute top-1/3 -right-28 w-96 h-96 bg-brand-secondary/15 blur-[150px] rounded-full pointer-events-none -z-10" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-10 items-center">
           
-          {/* Left Column: Clean, Modern Narrative Content (7 Cols) */}
           <motion.div
             initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 text-center lg:text-left space-y-6"
           >
-            {/* Minimalist Status Badge */}
             <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full neu-pill text-xs font-semibold text-app-text/80 shadow-sm">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -98,7 +92,6 @@ export const Hero: React.FC = () => {
               </span>
             </div>
 
-            {/* Main Headline with Rom Sreyneath */}
             <div>
               <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.25em] text-brand-primary mb-2">
                 Frontend Developer & Designer
@@ -108,18 +101,15 @@ export const Hero: React.FC = () => {
               </h1>
             </div>
 
-            {/* Dynamic Typed Subtitle */}
             <div className="h-8 sm:h-9 flex items-center justify-center lg:justify-start text-lg sm:text-xl md:text-2xl font-display font-semibold text-app-text/85">
               <span className="text-app-text/50 mr-2 font-normal">Specialized in</span>
               <span ref={typedEl} className="text-brand-primary font-bold" />
             </div>
 
-            {/* High-Impact Concise Bio */}
             <p className="text-sm sm:text-base text-app-text/70 max-w-lg mx-auto lg:mx-0 leading-relaxed font-normal">
-              Building scalable, responsive web and mobile applications with clean component architecture, intuitive UI/UX, and tactile tactile interaction systems.
+              Building scalable, responsive web and mobile applications with clean component architecture, intuitive UI/UX, and tactile interaction systems.
             </p>
 
-            {/* Action Buttons & Socials */}
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <div className="flex items-center gap-3 w-full sm:w-auto justify-center">
                 <a
@@ -138,7 +128,6 @@ export const Hero: React.FC = () => {
                 </a>
               </div>
 
-              {/* Social Quick Launchers */}
               <div className="flex items-center gap-2 pt-2 sm:pt-0 sm:pl-2 sm:border-l sm:border-app-border/40">
                 {socialLinks.map((item) => (
                   <a
@@ -154,10 +143,8 @@ export const Hero: React.FC = () => {
                 ))}
               </div>
             </div>
-
           </motion.div>
 
-          {/* Right Column: Modern Tactile Portrait Showcase (5 Cols) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -170,23 +157,26 @@ export const Hero: React.FC = () => {
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
             >
-              {/* Concentric Ambient Glow Rings */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-brand-primary/25 via-brand-secondary/20 to-transparent blur-2xl pointer-events-none -z-10 animate-pulse" />
+              <div className="absolute inset-0 rounded-full bg-linear-to-tr from-brand-primary/25 via-brand-secondary/20 to-transparent blur-2xl pointer-events-none -z-10 animate-pulse" />
               
-              {/* Subtle Ambient Outer Pulsing Ring */}
               <motion.div
                 animate={{ scale: [1, 1.15, 1], opacity: [0.35, 0.1, 0.35] }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
                 className="absolute -inset-3 rounded-full border border-brand-primary/30 pointer-events-none"
               />
 
-              {/* Interactive 3D Perspective Card Container */}
               <motion.div
                 style={{ rotateX, rotateY }}
-                className="relative w-full h-full rounded-full p-3 bg-gradient-to-b from-white/20 via-white/5 to-white/10 border border-white/20 shadow-2xl backdrop-blur-xl group cursor-pointer"
+                className="relative w-full h-full rounded-full p-3 bg-linear-to-b from-white/20 via-white/5 to-white/10 border border-white/20 shadow-2xl backdrop-blur-xl group cursor-pointer"
               >
-                {/* Image Container with Inner Shadow and Specular Highlight */}
-                <div className="w-full h-full rounded-full overflow-hidden bg-neutral-900 shadow-inner relative">
+                <div className="w-full h-full rounded-full overflow-hidden bg-linear-to-br from-brand-primary/15 via-app-bg to-brand-secondary/15 shadow-inner relative">
+                  <div
+                    className="absolute inset-0 opacity-40 pointer-events-none"
+                    style={{
+                      background: 'radial-gradient(circle at 50% 45%, var(--primary) 0%, transparent 65%)',
+                    }}
+                  />
+                  
                   <picture>
                     <source srcSet="/profile.webp" type="image/webp" />
                     <source srcSet="/profile.png" type="image/png" />
@@ -194,31 +184,27 @@ export const Hero: React.FC = () => {
                       src="/profile.png"
                       alt="Rom Sreyneath"
                       loading="eager"
-                      className="w-full h-full object-cover object-[center_16%] transition-transform duration-700 group-hover:scale-105"
+                      className="relative z-10 w-full h-full object-contain object-bottom transition-transform duration-700 group-hover:scale-105"
                     />
                   </picture>
 
-                  {/* Dynamic Specular Sheen Following Mouse */}
                   <motion.div 
-                    className="absolute inset-0 rounded-full pointer-events-none"
+                    className="absolute inset-0 rounded-full pointer-events-none z-20"
                     style={{
                       background: `radial-gradient(circle at ${glareX} ${glareY}, rgba(255,255,255,0.25) 0%, transparent 60%)`
                     }}
                   />
 
-                  {/* Gradient Rim */}
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-black/30 via-transparent to-white/15 pointer-events-none" />
+                  <div className="absolute inset-0 rounded-full bg-linear-to-tr from-black/25 via-transparent to-white/15 pointer-events-none z-20" />
                 </div>
 
-                {/* Modern Floating Micro Badge */}
-                <div className="absolute -bottom-2 right-4 sm:right-6 px-3.5 py-1.5 rounded-full neu-pill-inset bg-app-bg/90 backdrop-blur-md border border-app-border/40 shadow-lg flex items-center gap-2">
+                <div className="absolute -bottom-2 right-4 sm:right-6 px-3.5 py-1.5 rounded-full neu-pill-inset bg-app-bg/90 backdrop-blur-md border border-app-border/40 shadow-lg flex items-center gap-2 z-30">
                   <span className="w-2 h-2 rounded-full bg-brand-primary animate-ping" />
                   <span className="text-[11px] font-bold text-app-text font-mono">
                     UI/UX & Code
                   </span>
                 </div>
               </motion.div>
-
             </div>
           </motion.div>
 

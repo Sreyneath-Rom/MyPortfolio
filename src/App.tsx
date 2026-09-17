@@ -91,16 +91,17 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-app-bg text-app-text overflow-x-hidden transition-colors duration-500 relative">
-      {/* Global Noise Texture Overlay */}
-      <div className="fixed inset-0 pointer-events-none opacity-[0.03] z-[100] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay" />
+      {/* Global Noise Texture Overlay — self-contained SVG data URI */}
+      <div className="fixed inset-0 pointer-events-none opacity-[0.03] z-100 noise-overlay mix-blend-overlay" />
 
       {/* Global Ambient Glows */}
-      <div className="fixed -top-[10%] -left-[10%] w-[40%] h-[40%] bg-brand-primary/10 blur-[120px] rounded-full pointer-events-none z-0" />
-      <div className="fixed -bottom-[10%] -right-[10%] w-[40%] h-[40%] bg-brand-secondary/10 blur-[120px] rounded-full pointer-events-none z-0" />
+      <div className="fixed top-[-10%] left-[-10%] w-[40%] h-[40%] bg-brand-primary/10 blur-[120px] rounded-full pointer-events-none z-0" />
+      <div className="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-brand-secondary/10 blur-[120px] rounded-full pointer-events-none z-0" />
 
       <div className="relative z-10">
         <Navbar activeSection={activeSection} onSectionSelect={handleSectionSelect} />
-        <main>
+        {/* pb-24 prevents mobile bottom-nav overlap with Footer */}
+        <main className="pb-24 md:pb-0">
           <Hero />
           <About />
           <TechMarquee />
