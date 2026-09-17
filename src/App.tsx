@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Theme } from './types';
 import {
   Navbar,
@@ -16,24 +16,45 @@ import {
 export default function App() {
   const [theme, setTheme] = useState<Theme>('dark');
   const [activeSection, setActiveSection] = useState('hero');
+  const isNavigatingRef = useRef(false);
+  const navigationTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleSectionSelect = (id: string) => {
+    setActiveSection(id);
+    isNavigatingRef.current = true;
+    if (navigationTimeoutRef.current) {
+      clearTimeout(navigationTimeoutRef.current);
+    }
+    // Lock observer while the smooth scroll glides to target
+    navigationTimeoutRef.current = setTimeout(() => {
+      isNavigatingRef.current = false;
+    }, 750);
+  };
 
   useEffect(() => {
     // Sync with system or localStorage if needed
     const savedTheme = localStorage.getItem('app-theme') as Theme;
-    if (savedTheme) {
+    const validThemes: Theme[] = ['dark', 'light', 'midnight', 'nord'];
+    if (savedTheme && validThemes.includes(savedTheme)) {
       setTheme(savedTheme);
     }
 
     const handleIntersection = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
+      if (isNavigatingRef.current) return;
+
+      // Filter visible entries and pick the one with highest visibility
+      const visibleEntries = entries.filter((entry) => entry.isIntersecting);
+      if (visibleEntries.length > 0) {
+        const mostVisible = visibleEntries.reduce((prev, curr) =>
+          curr.intersectionRatio > prev.intersectionRatio ? curr : prev
+        );
+        setActiveSection(mostVisible.target.id);
+      }
     };
 
     const observer = new IntersectionObserver(handleIntersection, {
-      rootMargin: '-20% 0px -70% 0px',
+      rootMargin: '-15% 0px -35% 0px',
+      threshold: [0.1, 0.25, 0.5, 0.75],
     });
 
     const sections = ['hero', 'about', 'projects', 'experience', 'contact'];
@@ -42,7 +63,12 @@ export default function App() {
       if (section) observer.observe(section);
     });
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      if (navigationTimeoutRef.current) {
+        clearTimeout(navigationTimeoutRef.current);
+      }
+    };
   }, []);
 
   useEffect(() => {
@@ -73,7 +99,7 @@ export default function App() {
       <div className="fixed -bottom-[10%] -right-[10%] w-[40%] h-[40%] bg-brand-secondary/10 blur-[120px] rounded-full pointer-events-none z-0" />
 
       <div className="relative z-10">
-        <Navbar activeSection={activeSection} />
+        <Navbar activeSection={activeSection} onSectionSelect={handleSectionSelect} />
         <main>
           <Hero />
           <About />

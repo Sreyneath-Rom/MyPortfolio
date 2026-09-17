@@ -1,32 +1,32 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Moon, Sun, Palette } from 'lucide-react';
+import { Moon, Sun, Palette, Sparkles } from 'lucide-react';
 import { Theme } from '../types';
 
 export const THEMES = [
   {
     id: 'dark' as Theme,
     name: 'Dark',
-    icon: <Moon size={16} />,
-    color: 'bg-[#0b0b0c]',
+    icon: <Moon size={16} className="text-purple-400" />,
+    color: 'bg-[#151820] border-2 border-purple-400',
   },
   {
     id: 'light' as Theme,
     name: 'Light',
-    icon: <Sun size={16} />,
-    color: 'bg-[#f5f7fb]',
+    icon: <Sun size={16} className="text-amber-500" />,
+    color: 'bg-[#ebf0f7] border-2 border-purple-400',
   },
   {
     id: 'midnight' as Theme,
     name: 'Midnight',
-    icon: <Palette size={16} />,
-    color: 'bg-[#020617]',
+    icon: <Palette size={16} className="text-sky-400" />,
+    color: 'bg-[#080c16] border-2 border-sky-400',
   },
   {
     id: 'nord' as Theme,
     name: 'Nord',
-    icon: <Palette size={16} />,
-    color: 'bg-[#2e3440]',
+    icon: <Palette size={16} className="text-teal-300" />,
+    color: 'bg-[#2e3440] border-2 border-teal-300',
   },
 ] as const;
 
@@ -52,16 +52,16 @@ export const FloatingThemeSwitcher: React.FC<FloatingThemeSwitcherProps> = ({ cu
   const currentThemeIcon = THEMES.find(t => t.id === currentTheme)?.icon;
 
   return (
-    <div ref={containerRef} className="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[100] flex flex-col items-end gap-3">
+    <div ref={containerRef} className="fixed bottom-24 right-4 md:bottom-10 md:right-10 z-[100] flex flex-col items-end gap-3">
       <AnimatePresence>
         {isOpen && (
           <motion.div 
             initial={{ opacity: 0, scale: 0.8, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
-            className="flex flex-col gap-2 p-2 glass-card rounded-3xl shadow-2xl border-white/10 min-w-40 backdrop-blur-3xl"
+            className="flex flex-col gap-1.5 p-2 neu-card rounded-3xl shadow-2xl min-w-44 z-20"
           >
-            <p className="text-[9px] font-bold text-app-text/30 uppercase tracking-[0.2em] px-3 pt-3 pb-1">Appearance</p>
+            <p className="text-[9px] font-bold text-app-text/40 uppercase tracking-[0.2em] px-3 pt-2.5 pb-1">Theme Palette</p>
             {THEMES.map((theme) => (
               <button
                 key={theme.id}
@@ -72,12 +72,12 @@ export const FloatingThemeSwitcher: React.FC<FloatingThemeSwitcherProps> = ({ cu
                 className={`
                   flex w-full items-center gap-3
                   rounded-2xl px-4 py-2.5
-                  text-xs font-bold transition-all
-                  ${currentTheme === theme.id ? 'bg-brand-primary text-white shadow-lg shadow-brand-primary/20' : 'text-app-text hover:bg-white/5'}
+                  text-xs font-bold transition-all cursor-pointer
+                  ${currentTheme === theme.id ? 'neu-btn-purple text-white shadow-md' : 'text-app-text/80 hover:text-app-text neu-btn !shadow-sm'}
                 `}
               >
-                <div className={`h-4 w-4 rounded-full border border-white/10 ${theme.color}`} />
-                {theme.name}
+                <div className={`h-4 w-4 rounded-full ${theme.color} shrink-0`} />
+                <span>{theme.name}</span>
               </button>
             ))}
           </motion.div>
@@ -86,14 +86,14 @@ export const FloatingThemeSwitcher: React.FC<FloatingThemeSwitcherProps> = ({ cu
 
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
+        whileHover={{ scale: 1.08 }}
+        whileTap={{ scale: 0.92 }}
         aria-label="Toggle theme appearance switcher"
-        className={`w-14 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-3xl glass-sheet shadow-2xl border-white/10 transition-all duration-500 overflow-hidden relative group ${isOpen ? 'rotate-90 bg-brand-primary text-white shadow-brand-primary/20' : 'text-app-text hover:bg-brand-primary/5'}`}
+        className={`w-14 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-full neu-circle-btn cursor-pointer transition-all duration-300 ${isOpen ? 'neu-btn-purple text-white' : 'text-app-text'}`}
       >
-        <div className="absolute inset-0 bg-gradient-to-tr from-brand-primary/20 to-brand-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity" />
         <motion.div
-           animate={{ rotate: isOpen ? 0 : 0 }}
+           animate={{ rotate: isOpen ? 90 : 0 }}
+           transition={{ type: "spring", stiffness: 300, damping: 20 }}
            className="relative z-10"
         >
           {currentThemeIcon}

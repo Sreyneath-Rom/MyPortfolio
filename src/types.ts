@@ -10,6 +10,8 @@ export interface Project {
   roleDescription: string;
   impact: string;
   tech: string[];
+  frontendTech?: string[];
+  backendTech?: string[];
   image: string;
   link: string;
   github: string;
@@ -22,6 +24,10 @@ export interface Experience {
   period: string;
   description: string;
   type: 'Work Experience' | 'School Project' | 'Internship' | 'Personal Project';
+  location?: string;
+  status?: 'Current' | 'Completed';
+  highlights?: string[];
+  technologies?: string[];
 }
 
 export interface ThemeOption {

@@ -1,4 +1,4 @@
-import { Project, Experience, NavLink } from './types';
+import { Project, Experience, NavLink } from '../types';
 
 export const NAV_LINKS: NavLink[] = [
   { name: 'About', href: '#about' },
@@ -12,23 +12,44 @@ export const PROJECTS_DATA: Project[] = [
     id: 1,
     title: "High School Management System",
     category: "Personal Project",
-    shortDescription: "A modern role-based High School Management System frontend built for Varin High School.",
-    description: "A modern role-based High School Management System frontend built for Varin High School. The application provides separate workflows for Administrators, Teachers, and Students, with centralized authentication, school configuration, academic management, attendance, schedules, homework, quizzes, grades, reports, and communication.",
-    problemSolved: "Varin High School required an integrated, intuitive, and modern digital platform to replace fragmented paper systems and manual tracking for administrative operations, class schedules, gradebook calculation, student attendance, quizzes, and faculty-student communication.",
-    roleDescription: "Sole UX/UI Designer & Full Frontend Developer. Handled the entire UX/UI design process (user flows, wireframes, and design system in Figma) and developed the full responsive frontend architecture with role-based routing and centralized state management.",
-    impact: "Successfully designed and engineered separate role-tailored dashboards for Admins, Teachers, and Students with real-time academic workflows, attendance logs, quiz & homework management, and comprehensive reporting.",
+    shortDescription: "A full-stack role-based High School Management System built with React 19, TypeScript, Node.js, Express, Prisma 7, and PostgreSQL 16.",
+    description: "A modern full-stack role-based High School Management System engineered for Varin High School. The platform delivers separate workflows for Administrators, Teachers, and Students, complete with JWT access/refresh token authentication, centralized school configuration, academic management, attendance tracking, schedules, homework, quizzes, gradebook calculation, reports, and Swagger API documentation.",
+    problemSolved: "Varin High School required an integrated, secure, and modern digital platform to replace fragmented paper systems and manual tracking for administrative operations, class schedules, gradebook calculation, student attendance, quizzes, and faculty-student communication.",
+    roleDescription: "Sole UX/UI Designer & Full-Stack Developer. Handled the entire UX/UI design process (user flows, wireframes, and design system in Figma) and developed both the React 19 frontend and the Node.js/Express Prisma backend architecture with role-based routing and automated token refresh.",
+    impact: "Successfully designed and engineered separate role-tailored dashboards for Admins, Teachers, and Students with real-time academic workflows, attendance logs, quiz & homework management, PostgreSQL 16 persistence via Prisma 7, and production security.",
     tech: [
       "React 19",
       "TypeScript",
-      "Vite",
-      "Tailwind CSS 4",
-      "React Router",
-      "Context API",
+      "Node.js",
+      "Express",
+      "Prisma 7",
+      "PostgreSQL 16",
+      "Tailwind CSS",
       "Redux Toolkit",
-      "Lucide React",
-      "Fetch API",
-      "Express.js",
-      "MySQL"
+      "React Hook Form",
+      "Zod",
+      "JWT Auth",
+      "Swagger API",
+      "Vite"
+    ],
+    frontendTech: [
+      "React 19 and TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "React Router",
+      "Context API and Redux Toolkit",
+      "React Hook Form and Zod",
+      "Fetch-based API client with access-token refresh"
+    ],
+    backendTech: [
+      "Node.js and Express",
+      "TypeScript",
+      "Prisma 7 with the PostgreSQL adapter",
+      "PostgreSQL 16",
+      "JWT access and refresh tokens",
+      "Zod validation",
+      "Helmet, CORS, rate limiting, Morgan, and Winston logging",
+      "Swagger API documentation"
     ],
     image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80",
     link: "https://github.com/Sreyneath-Rom/School-Management",
@@ -54,11 +75,11 @@ export const PROJECTS_DATA: Project[] = [
     ],
     image: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=800&q=80",
     link: "https://github.com/Sreyneath-Rom",
-    github: "https://github.com/Sreyneath-Rom"
+    github: "https://github.com/Sreyneath-Rom/cake"
   },
   {
     id: 3,
-    title: "Media Studio Pro (ឧបករណ៍មេឌៀកម្រិតខ្ពស់)",
+    title: "Media Studio Pro",
     category: "Personal Project",
     shortDescription: "A modern multimedia suite for downloading, extracting, editing, and processing video, audio, and image content.",
     description: "A comprehensive multimedia suite available both as a high-performance Web Application (React 18 + TypeScript + Tailwind CSS) and as a standalone Desktop GUI (Python Tkinter + yt-dlp + OpenCV + pydub). Features YouTube/TikTok/Instagram/Facebook 4K downloading, playlist batch processing, pure audio stream extraction with bitrate control, 100% browser-native AI background removal & matting with dual-pane comparison, precision video frame micro-stepping (-1s, -0.1s, +0.1s, +1s), interactive audio waveform visualizer/trimmer, real-time activity terminal logs, and complete bilingual localization in English and Khmer (ភាសាខ្មែរ).",
@@ -80,11 +101,11 @@ export const PROJECTS_DATA: Project[] = [
     ],
     image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&q=80",
     link: "https://github.com/Sreyneath-Rom",
-    github: "https://github.com/Sreyneath-Rom"
+    github: "https://github.com/Sreyneath-Rom/Video-Downloader-Editing"
   },
   {
     id: 4,
-    title: "Farm Control Mobile App (VC2)",
+    title: "Farm Control Mobile App VC2",
     category: "School Project",
     shortDescription: "Smart farm monitoring & automation mobile application built with Expo and React Native.",
     description: "A modern mobile application for managing and controlling smart agricultural farm systems (Farm Control VC2). Built with Expo and Expo Router for file-based routing, React Native Elements for UI components, and modern Vector Icons for intuitive sensor and hardware controls.",
@@ -102,36 +123,45 @@ export const PROJECTS_DATA: Project[] = [
     ],
     image: "https://images.unsplash.com/photo-1586771107445-d3ca888129ff?w=800&q=80",
     link: "https://github.com/Sreyneath-Rom",
-    github: "https://github.com/Sreyneath-Rom"
+    github: "https://github.com/Sreyneath-Rom/Farm_control-VC2"
   },
   {
     id: 5,
-    title: "Pos System",
+    title: "XING FU CHA System VC1",
     category: "School Project",
-    shortDescription: "A comprehensive point-of-sale system built as a capstone school project.",
-    description: "Monitored server performance and resolved infrastructure issues. Configured environments for development, testing, and production. Designed responsive UIs with HTML, CSS, JavaScript and Bootstrap 5.",
-    problemSolved: "Businesses needed a reliable way to manage transactions and inventory in real-time.",
-    roleDescription: "DevOps & Frontend. Fetched and processed data using PHP and a connected database while ensuring server stability.",
-    impact: "Developed a fully functional POS environment used for school demonstrations and small business simulations.",
-    tech: ["PHP", "MySQL", "JavaScript", "Bootstrap 5", "DevOps"],
-    image: "https://images.unsplash.com/photo-1556740758-90de374c12ad?w=800&q=80",
+    shortDescription: "A PHP + MySQL bubble tea shop application where customers order customized drinks and admins manage shop operations.",
+    description: "XING FU CHA is a dedicated Bubble Tea Ordering and POS System (POS VC1) engineered with PHP and MySQL. Designed specifically for beverage shops, it provides an intuitive ordering interface for customers to browse drinks, customize preferences (sugar level, ice percentage, toppings), and place orders. For shop administrators, it features a comprehensive back-office management portal to oversee menu items, pricing, inventory stock, incoming order queues, and sales transactions.",
+    problemSolved: "Bubble tea shops face high customer volume and intricate per-drink customizations. Generic POS systems create ordering bottlenecks and mistakes. XING FU CHA digitalizes the entire customer ordering flow and streamlines administrative shop management.",
+    roleDescription: "Full-Stack Developer & UI Designer. Designed the customer ordering UI and administrator back-office dashboard, developed server-side PHP logic, structured the MySQL database schema, configured Composer dependencies, and maintained environment performance.",
+    impact: "Delivered a fully functional bubble tea ordering and POS solution with dynamic drink customization, streamlined order queue handling for staff, and centralized sales reporting.",
+    tech: [
+      "PHP 7.4+",
+      "MySQL 5.7+",
+      "MariaDB 10.2+",
+      "Composer 2.x",
+      "JavaScript",
+      "Bootstrap 5",
+      "HTML5 / CSS3",
+      "POS System"
+    ],
+    frontendTech: [
+      "Responsive Customer Drink Ordering UI",
+      "Drink Customization (Sugar, Ice Level, Toppings)",
+      "Interactive Real-Time Cart & Checkout",
+      "Bootstrap 5 & Dynamic JavaScript"
+    ],
+    backendTech: [
+      "PHP 7.4+ Server Logic",
+      "MySQL 5.7+ / MariaDB 10.2+ Relational Database",
+      "Composer 2.x Dependency Management",
+      "Admin Shop & Menu Management Dashboard",
+      "Order Queue & Sales Reporting Architecture"
+    ],
+    image: "https://images.unsplash.com/photo-1558857563-b37cf5c777e1?w=800&q=80",
     link: "https://github.com/Sreyneath-Rom",
-    github: "https://github.com/Sreyneath-Rom"
+    github: "https://github.com/Charyna-chab/VC1-Group8-Drink"
   },
-  {
-    id: 6,
-    title: "Inventory Management App",
-    category: "School Project",
-    shortDescription: "Modernizing internal workflows with real-time tracking.",
-    description: "Designed responsive UIs; created wireframes and mockups using Figma. Collaborated with developers to ensure design consistency. Handled data interactions with JavaScript.",
-    roleDescription: "Lead Designer. Focused on auditing legacy systems and redesigning the core dashboard for better accessibility.",
-    problemSolved: "Manual inventory tracking was slow and error-prone.",
-    impact: "Improved tracking efficiency and reduced data entry errors by 40% through intuitive UX.",
-    tech: ["Figma", "UI/UX", "JavaScript", "HTML/CSS"],
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80",
-    link: "https://github.com/Sreyneath-Rom",
-    github: "https://github.com/Sreyneath-Rom"
-  },
+ 
   {
     id: 7,
     title: "Video Download Tool",
@@ -144,7 +174,7 @@ export const PROJECTS_DATA: Project[] = [
     tech: ["Team Leadership", "JSON", "JavaScript", "Project Management"],
     image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
     link: "https://github.com/Sreyneath-Rom",
-    github: "https://github.com/Sreyneath-Rom"
+    github: "https://github.com/Sreyneath-Rom/Video-Downloader-Editing"
   },
   {
     id: 8,
@@ -158,7 +188,7 @@ export const PROJECTS_DATA: Project[] = [
     tech: ["SASS", "Responsive Design", "UI Design", "Figma"],
     image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&q=80",
     link: "https://github.com/Sreyneath-Rom",
-    github: "https://github.com/Sreyneath-Rom"
+    github: "https://github.com/Sreyneath-Rom/BAKERY-SHOP-NEW"
   },
 
 ];
@@ -167,87 +197,66 @@ export const EXPERIENCES_DATA: Experience[] = [
   {
     id: 1,
     role: "UX-UI Designer",
-    company: "Caltech Innovation",
+    company: "Caltech Innovation Co., Ltd.",
     period: "Mar 2026 - May 2026",
     type: "Work Experience",
-    description: "Designed intuitive interfaces for web/mobile, created wireframes and prototypes using Figma, and conducted usability testing."
+    location: "Phnom Penh, Cambodia",
+    status: "Completed",
+    description: "Designed intuitive user experiences and high-fidelity design systems for enterprise web and mobile platforms, transforming complex workflows into tactile, accessible digital products.",
+    highlights: [
+      "Engineered comprehensive Figma component libraries, responsive grids, and design tokens for cross-functional teams.",
+      "Facilitated usability testing sessions and translated qualitative user feedback into iterated wireframes and interactive prototypes.",
+      "Partnered with frontend developers to ensure design integrity, accessibility standards (WCAG AA), and micro-animations."
+    ],
+    technologies: ["Figma", "Design Systems", "Prototyping", "UX Research", "Usability Testing", "Wireframing", "Mobile & Web UI"]
   },
   {
     id: 2,
     role: "Software Specialist Internship",
-    company: "Hong Hea Technology",
+    company: "Hong Hea Technology Co., Ltd.",
     period: "Jul 2025 - Jan 2026",
     type: "Internship",
-    description: "Developed applications using Sunmi (MaxProgram), improved UI designs for the Heawork System, and performed system testing."
+    location: "Phnom Penh, Cambodia",
+    status: "Completed",
+    description: "Developed and optimized point-of-sale and merchant applications on Sunmi hardware (MaxProgram ecosystem), while refining UI systems and conducting end-to-end QA validation.",
+    highlights: [
+      "Developed dedicated terminal applications targeting Sunmi smart hardware, enhancing transaction throughput for retail operators.",
+      "Redesigned key operational interfaces for the Heawork System, significantly decreasing operator input friction and error rates.",
+      "Conducted extensive cross-device functional testing, hardware peripheral diagnostics (thermal printers, barcode scanners), and REST API validations."
+    ],
+    technologies: ["Sunmi SDK", "MaxProgram", "POS Systems", "UI Refinement", "QA Validation", "Hardware Diagnostics", "REST APIs"]
   },
-  {
-    id: 3,
-    role: "DevOps",
-    company: "Pos System",
-    period: "Feb 10, 2025 - May 02, 2025",
-    type: "School Project",
-    description: "Monitored server performance and resolved infrastructure issues. Configured environments for development, testing, and production. Designed responsive UIs with HTML/CSS/JS/Bootstrap 5."
-  },
-  {
-    id: 4,
-    role: "Designer",
-    company: "Inventory Management App",
-    period: "Jan 14, 2025 - Jan 29, 2025",
-    type: "School Project",
-    description: "Designed responsive UIs; created wireframes and mockups using Figma. Collaborated with developers to ensure design consistency. Handled data interactions."
-  },
-  {
-    id: 5,
-    role: "Team Leader",
-    company: "Video Download Tool",
-    period: "Nov 18, 2024 - Nov 28, 2024",
-    type: "School Project",
-    description: "Led a team of 3 in building a video downloader tool. Defined workflow, delegated tasks and integrated JSON-based configuration."
-  },
-  {
-    id: 6,
-    role: "Designer",
-    company: "Bakery Shop Website",
-    period: "Oct 21, 2024 - Nov 5, 2024",
-    type: "School Project",
-    description: "Designed a responsive bakery website using SASS and consistent visual patterns."
-  },
-  {
-    id: 7,
-    role: "Designer",
-    company: "Brochure Design",
-    period: "Jun 18, 2024 - Aug 16, 2024",
-    type: "School Project",
-    description: "Created marketing brochures using Figma and applied branding guidelines."
-  }
 ];
 
 export const TECHNICAL_SKILLS = [
-  'React / React 19',
-  'TypeScript',
-  'Flutter / Dart',
-  'React Native / Expo',
+  'React 19 & TypeScript',
+  'Node.js & Express',
+  'PostgreSQL 16',
+  'Prisma 7 (ORM)',
   'Tailwind CSS',
-  'JavaScript (ES6+)',
-  'HTML5 / CSS3 / SASS',
-  'Node.js / Express.js',
-  'PHP / Laravel',
+  'React Router & Redux Toolkit',
+  'React Hook Form & Zod',
+  'JWT Auth & API Security',
+  'Swagger API Documentation',
+  'Flutter & Dart',
+  'PHP (7.4+) & Laravel',
   'MySQL / MariaDB',
-  'Python / Tkinter',
-
+  'Python & Tkinter',
+  'HTML5 / CSS3 / SASS',
 ];
 
 export const TOOLS_AND_PLATFORMS = [
   'Figma (UI/UX)',
-  'CapCut',
-  'AI & Generative Tools',
-  'Git / GitHub',
-  'Vite / Webpack',
+  'Vite',
+  'Composer',
   'Postman',
+  'Swagger UI',
+  'Git / GitHub /GitLab',
+  'Prisma Studio / pgAdmin',
   'Linux (Ubuntu)',
   'Firebase',
+  'CapCut',
   'Jira / ClickUp',
-  'Power BI'
 ];
 
 export const WORKSHOPS = [

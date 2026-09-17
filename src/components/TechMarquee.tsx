@@ -12,20 +12,19 @@ export const TechMarquee: React.FC = () => {
         { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
         { name: 'HTML5', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
         { name: 'CSS3', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+        { name: 'PostgreSQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
         { name: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
         { name: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
-        { name: 'C#', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg' },
-        { name: 'C++', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg' },
       ]
     },
     {
       direction: 'right',
       items: [
         { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-        { name: 'Vue.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg' },
-        { name: 'Next.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg' },
+        { name: 'Prisma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg' },
         { name: 'Tailwind CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
-        { name: 'Bootstrap', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg' },
+        { name: 'Next.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg' },
+        { name: 'Redux', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg' },
         { name: 'SASS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg' },
         { name: 'Figma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
       ]
@@ -45,19 +44,17 @@ export const TechMarquee: React.FC = () => {
   ];
 
   return (
-    <div className="py-12 glass-sheet overflow-hidden border-y border-white/5 relative z-10 group/marquee">
-      {/* Subtle Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-brand-primary/5 blur-[80px] pointer-events-none" />
+    <div className="py-10 neu-card rounded-none border-x-0 border-y border-white/5 overflow-hidden relative z-10 group/marquee my-6">
       <div className="space-y-6 md:space-y-8 relative z-10">
         {rows.map((row, idx) => (
           <div key={idx} className="relative flex overflow-x-hidden">
             <div className={`flex whitespace-nowrap py-2 ${row.direction === 'left' ? 'animate-marquee' : 'animate-marquee-right'} hover:[animation-play-state:paused]`}>
               {[...row.items, ...row.items, ...row.items, ...row.items].map((item, i) => (
-                <div key={i} className="flex items-center gap-3 sm:gap-4 mx-6 sm:mx-12 group cursor-default">
+                <div key={i} className="flex items-center gap-3 sm:gap-4 mx-6 sm:mx-10 group cursor-default">
                   <motion.div 
-                    whileHover={{ scale: 1.2, rotate: 5, y: -5 }}
+                    whileHover={{ scale: 1.15, y: -3 }}
                     transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                    className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center glass-card p-2 sm:p-2.5 border-white/10 group-hover:border-brand-primary/50 transition-colors"
+                    className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-2xl neu-circle-btn p-2 sm:p-2.5 transition-colors"
                   >
                     <img 
                       src={item.icon} 
@@ -67,8 +64,8 @@ export const TechMarquee: React.FC = () => {
                     />
                   </motion.div>
                   <motion.span 
-                    whileHover={{ scale: 1.1, x: 5 }}
-                    className="text-sm font-bold text-app-text/20 group-hover:text-brand-primary transition-all duration-300 uppercase tracking-widest"
+                    whileHover={{ scale: 1.05, x: 2 }}
+                    className="text-xs sm:text-sm font-bold text-app-text/60 group-hover:text-brand-primary transition-all duration-300 tracking-wider"
                   >
                     {item.name}
                   </motion.span>
